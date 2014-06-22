@@ -1,0 +1,74 @@
+package controller;
+
+import dao.PostDaoLocal;
+import dao.ProfileDaoLocal;
+import dao.TopicDaoLocal;
+import java.io.IOException;
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Post;
+import model.Profile;
+
+@WebServlet(name = "mainServlet", urlPatterns = {"/mainServlet"})
+public class mainServlet extends HttpServlet {
+    
+    @EJB
+    private ProfileDaoLocal userDao;
+    @EJB
+    private TopicDaoLocal topicDao;
+    // @EJB
+    // private CategoryDaoLocal categoryDao;
+    @EJB
+    private PostDaoLocal postDao;
+    
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        HttpSession session = request.getSession(true);
+        String action = request.getParameter("action");
+        request.setAttribute("message", "No messages");
+        
+        /***********************************************************************
+         * READ URL PARAMETERS
+         **********************************************************************/
+        
+        String topicParameter = request.getParameter("topicId");
+        if(topicParameter != null && !"".equals(topicParameter)){
+            System.out.println("URL parameters detected");
+            // The displayed posts will be different
+            int topicId = Integer.parseInt(topicParameter);
+            request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
+            request.setAttribute("allUsers", userDao.getAllUsers());
+            request.setAttribute("allTopics", topicDao.getAllTopics());
+            request.setAttribute("allTopicContent", topicDao.getAllTopicContent());
+            session.setAttribute("topicId", topicParameter);
+        }
+        else{
+            // Refresh page with all results
+            System.out.println("Page refreshing with all results");
+            request.setAttribute("allPosts", postDao.getAllPosts());
+            request.setAttribute("allUsers", userDao.getAllUsers());
+            request.setAttribute("allTopics", topicDao.getAllTopics());
+            request.setAttribute("allTopicContent", topicDao.getAllTopicContent());
+        }
+        
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+}
