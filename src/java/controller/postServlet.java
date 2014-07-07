@@ -38,7 +38,6 @@ public class postServlet extends HttpServlet {
          **********************************************************************/
         
         if(action != null && !"".equals(action)){
-            System.out.println("Form input");
             String userIdString = request.getParameter("USERID");
             int userId = 0;
             if(!"".equals(userIdString) && userIdString!= null){
@@ -83,10 +82,12 @@ public class postServlet extends HttpServlet {
             
             request.setAttribute("post", post);
             request.setAttribute("user", user);
+            response.sendRedirect("mainServlet?topicId=" + topicIdString);
         }
-        
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-        
+        else{
+            // Not sure how this would be reached. Just redirect to main page
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }        
     }
     
     @Override

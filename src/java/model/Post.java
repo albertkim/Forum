@@ -23,9 +23,9 @@ public class Post implements Serializable{
     private int USERID;
     // private Date date;
     @Column
-    private String CONTENT;
+    private String CONTENT;     // Contents of the post
     @Column
-    private int PARENTID;
+    private int PARENTID;       // To tell whether the post is a response to another post, 0 if main post
     @Column
     private int TOPICID;
 

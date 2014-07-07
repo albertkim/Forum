@@ -16,10 +16,8 @@ public class Topic implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
     private int TOPICID;
-    
     @Column
     private int POSTID;
-    
     @Column
     private int CATEGORYID;
     

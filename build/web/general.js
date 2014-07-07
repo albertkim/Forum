@@ -20,13 +20,33 @@ function createPostElement(postId, userId, content) {
     postElement.appendChild(userWrapper);
     postElement.appendChild(contentWrapper);
     
+    // If the element is clicked, expand the element to show additional options underneath
+    $(postElement).on("click", function(){
+        // Remove selected class and reply elements from all other posts
+        $(".postElement").not($(this)).removeClass("selected");
+        $(".postElement").not($(this)).find(".detailsWrapper").remove();
+        
+        if($(this).hasClass("selected")){
+            // Give some option to remove the selected state of the post
+        } else{
+            // Add selected tag and reply element
+            $(this).addClass("selected");
+            var detailsWrapper = $("<div class=\"detailsWrapper\"\"></div>");
+            var replyElement = $("<form class=\"responseForm\" action=\"./postServlet\" method=\"POST\"><table><tbody>\n\<tr>\n\
+                                    <td>Reply:</td>\n\
+                                    <td><input type=\"text\" name=\"CONTENT\" value=\"\"></td>\n\
+                                    </tr></tbody></table>\n\
+                                    <input type=\"submit\" name=\"action\" value=\"addPost\"></form>");
+            $(detailsWrapper).append(replyElement);
+            $(this).append(detailsWrapper);
+        }
+    });
+    
     document.getElementById("postDiv").appendChild(postElement);
     
 }
 
 function createTopicElement(topicId, content){
-    console.log("Topic made");
-    
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "index.jsp", true);
     

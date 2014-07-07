@@ -37,7 +37,7 @@
                 <form action="./postServlet" method="POST">
                     <table>
                         <tr>
-                            <td>Reply:</td>
+                            <td>New Topic:</td>
                             <td><input type="text" name="CONTENT" value="${topic.CONTENT}" /></td>
                         </tr>
                     </table>

@@ -1,6 +1,5 @@
 body{
     font-family: Helvetica;
-    overflow: hidden;
 }
 
 table{
@@ -9,7 +8,7 @@ table{
 }
 
 .backgroundbox{
-    background-color: #66CCFF;
+    background-color: #E0E0E0;
     border: 2px solid;
     border-radius: 2px;
     box-shadow: 10px 10px 5px #888888;
@@ -22,10 +21,10 @@ table{
     left: 0;
     width: 350px;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: #E0E0E0 ;
     border-left: 1px solid #353535;
     padding: 10px;
-    background-color: #66CCFF;
+    z-index: 9;
 }
 
 .toppanel{
@@ -34,14 +33,17 @@ table{
     top: 0;
     height: 50px;
     width: calc(100% - 350px);
-    background-color: #66CCFF;
+    background-color: #E0E0E0 ;
+    z-index: 9;
 }
 
 .mainpanel{
-    position: fixed;
+    position: relative;
+    overflow: auto;
     left: 400px;
     top: 60px;
     width: calc(100% - 350px);
+    z-index: 8;
 }
 
 /* Topic element */
@@ -49,7 +51,7 @@ table{
 .topicElement{
     width: 300px;
     height: 60px;
-    background-color: appworkspace;
+    background-color: #FFFFFF ;
     border-radius: 5px;
     border-width: thin;
     border-style: solid;
@@ -91,6 +93,16 @@ table{
     border-color: #888888;
 }
 
+.postElement.selected{
+    width: 1000px;
+    height: 120px;
+    background-color: #C0C0C0;
+    border-radius: 5px;
+    border-width: thin;
+    border-style: solid;
+    border-color: #888888;
+}
+
 .userWrapper{
     width: 40px;
     height: 40px;
@@ -100,6 +112,7 @@ table{
     border-width: thin;
     border-style: solid;
     border-color: #888888;
+    background-color: #FFFFFF;
 }
 
 .contentWrapper{
@@ -112,4 +125,17 @@ table{
     border-width: thin;
     border-style: solid;
     border-color: #888888;
+    background-color: #FFFFFF;
+}
+
+.detailsWrapper{
+    position: relative;
+    bottom: 0px;
+    width: 1000px;
+    height: 60px;
+    top: 60px;
+}
+
+.responseForm{
+    position: absolute;
 }
