@@ -4,6 +4,7 @@ import dao.PostDaoLocal;
 import dao.ProfileDaoLocal;
 import dao.TopicDaoLocal;
 import java.io.IOException;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,88 +17,81 @@ import model.Profile;
 
 @WebServlet(name = "postServlet", urlPatterns = {"/postServlet"})
 public class postServlet extends HttpServlet {
-    
-    @EJB
-    private ProfileDaoLocal userDao;
-    @EJB
-    private TopicDaoLocal topicDao;
+
+  @EJB
+  private ProfileDaoLocal userDao;
+  @EJB
+  private TopicDaoLocal topicDao;
     // @EJB
-    // private CategoryDaoLocal categoryDao;
-    @EJB
-    private PostDaoLocal postDao;
-    
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        HttpSession session = request.getSession(true);
-        String action = request.getParameter("action");
-        request.setAttribute("message", "No messages");
-        
-        /***********************************************************************
-         * FORM INPUT
-         **********************************************************************/
-        
-        if(action != null && !"".equals(action)){
-            String userIdString = request.getParameter("USERID");
-            int userId = 0;
-            if(!"".equals(userIdString) && userIdString!= null){
-                userId = Integer.parseInt(userIdString);
-            }
+  // private CategoryDaoLocal categoryDao;
+  @EJB
+  private PostDaoLocal postDao;
 
-            String content = request.getParameter("CONTENT");
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            String parentIdString = request.getParameter("PARENT");
-            int parentId = 0;
+    HttpSession session = request.getSession(true);
+    String action = request.getParameter("action");
+    request.setAttribute("message", "No messages");
 
-            String topicIdString = session.getAttribute("topicId").toString();
-            int topicId = Integer.parseInt(topicIdString);
-            if(!"".equals(topicIdString) && topicIdString!=null){
-                topicId = Integer.parseInt(topicIdString);
-            }
+    /**
+     * *********************************************************************
+     * FORM INPUT
+         *********************************************************************
+     */
+    if (action != null && !"".equals(action)) {
+      String userIdString = request.getParameter("USERID");
+      int userId = 0;
+      if (!"".equals(userIdString) && userIdString != null) {
+        userId = Integer.parseInt(userIdString);
+      }
 
-            String username = request.getParameter("USERNAME");
-            String password = request.getParameter("PASSWORD");
-            String dateCreated = "2014-04-27";
-            String lastLogin = "2014-04-28";
+      String content = request.getParameter("CONTENT");
 
-            Post post = new Post(userId, content, parentId, topicId);
-            Profile user = new Profile(username, password, dateCreated, lastLogin);        
+      String parentIdString = request.getParameter("PARENT");
+      int parentId = 0;
 
-            if("addPost".equalsIgnoreCase(action)){
-                postDao.addPost(post);
-            }
-            else if("addTopic".equalsIgnoreCase(action)){
+      String topicIdString = session.getAttribute("topicId").toString();
+      int topicId = Integer.parseInt(topicIdString);
+      if (!"".equals(topicIdString) && topicIdString != null) {
+        topicId = Integer.parseInt(topicIdString);
+      }
+
+      String username = request.getParameter("USERNAME");
+      String password = request.getParameter("PASSWORD");
+      Post post = new Post(userId, content, parentId, topicId);
+      Profile user = new Profile(username, password);
+
+      if ("addPost".equalsIgnoreCase(action)) {
+        postDao.addPost(post);
+      } else if ("addTopic".equalsIgnoreCase(action)) {
                 // Post newPost = new Post();
-                // Topic newTopic = new Topic();
-                topicDao.addTopic(null);
-            }
-            else if("addUser".equalsIgnoreCase(action)){
-                if(userDao.userExists(username)){
-                    request.setAttribute("message", "Username already exists");
-                }
-                else{
-                    userDao.addUser(user);
-                }
-            }
-            
-            request.setAttribute("post", post);
-            request.setAttribute("user", user);
-            response.sendRedirect("mainServlet?topicId=" + topicIdString);
+        // Topic newTopic = new Topic();
+        topicDao.addTopic(null);
+      } else if ("addUser".equalsIgnoreCase(action)) {
+        if (userDao.userExists(username)) {
+          request.setAttribute("message", "Username already exists");
+        } else {
+          userDao.addUser(user);
         }
-        else{
-            // Not sure how this would be reached. Just redirect to main page
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }        
-    }
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-    }
+      }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+      request.setAttribute("post", post);
+      request.setAttribute("user", user);
+      response.sendRedirect("mainServlet?topicId=" + topicIdString);
+    } else {
+      // Not sure how this would be reached. Just redirect to main page
+      request.getRequestDispatcher("index.jsp").forward(request, response);
     }
-    
+  }
+
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    processRequest(request, response);
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    processRequest(request, response);
+  }
+
 }
