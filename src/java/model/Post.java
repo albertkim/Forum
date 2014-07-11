@@ -42,7 +42,6 @@ public class Post implements Serializable {
     this.CONTENT = content;
     this.PARENTID = parentId;
     this.TOPICID = topicId;
-
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
   }

@@ -29,20 +29,24 @@
         <c:forEach items="${allTopics}" varStatus="row">
           <tr>
             <div class="topicElement">
-              <div class="categoryWrapper">${allTopicContent[row.index]}</div>
+              <div class="categoryWrapper">${allTopics[row.index].CONTENT}</div>
               <div class="topicWrapper">${allTopics[row.index].TOPICID}</div>
             </div>
           </tr>
+          <div style="height: 5px;"></div>
         </c:forEach>
         <br>
         <form action="./postServlet" method="POST">
           <table>
             <tr>
               <td>New Topic:</td>
-              <td><input type="text" name="CONTENT" value="${topic.CONTENT}" /></td>
+              <td><input type="text" name="CONTENT" value="${topic.CONTENT}"/></td>
+              <!-- TODO: Get user from session -->
+              <td><input type="hidden" name="USERID" value="1"/></td>
+              <td><input type="hidden" name="CATEGORYID" value="1"/></td>
             </tr>
           </table>
-          <input type="submit" name="action" value="addTopic" />
+          <input type="submit" name="action" value="addTopic"/>
         </form>
       </div>
     </div>
@@ -65,11 +69,11 @@
           <table>
             <tr>
               <td>Username</td>
-              <td><input type="text" name="USERNAME" value="${user.USERNAME}" /></td>
+              <td><input type="text" name="USERNAME" value="${user.USERNAME}"/></td>
             </tr>
             <tr>
               <td>Password</td>
-              <td><input type="text" name="PASSWORD" value="${user.PASSWORD}" /></td>
+              <td><input type="text" name="PASSWORD" value="${user.PASSWORD}"/></td>
             </tr>
           </table>
           <input type="submit" name="action" value="addUser" />
@@ -85,7 +89,7 @@
               <h4>Posts</h4>
               <c:forEach items="${allPosts}" var="post">
                 <div class="postElement">
-                  <div class="userWrapper">${post.POSTID}/${post.USERID}</div>
+                  <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
                   <div class="contentWrapper">${post.CONTENT}</div>
                   <div class="detailsWrapper" hidden>
                     <form class="responseForm" action="./postServlet" method="POST">
@@ -93,19 +97,21 @@
                         <tr>
                           <td>Reply:</td>
                           <td><input type="text" name="CONTENT" value=""/></td>
+                          <td><input type="hidden" name="POSTID" value="${post.POSTID}"/></td>
                         </tr>
                       </table>
                       <input type="submit" name="action" value="addPost"/>
                     </form>
                   </div>
                 </div>
+                <div style="height: 5px;"></div>
               </c:forEach>
               <br>
               <form action="./postServlet" method="POST">
                 <table>
                   <tr>
                     <td>Reply:</td>
-                    <td><input type="text" name="CONTENT" value="${post.CONTENT}" /></td>
+                    <td><input type="text" name="CONTENT" value="${post.CONTENT}"/></td>
                   </tr>
                 </table>
                 <input type="submit" name="action" value="addPost"/>

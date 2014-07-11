@@ -42,14 +42,12 @@ public class mainServlet extends HttpServlet {
       request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
       request.setAttribute("allUsers", userDao.getAllUsers());
       request.setAttribute("allTopics", topicDao.getAllTopics());
-      request.setAttribute("allTopicContent", topicDao.getAllTopicContent());
       session.setAttribute("topicId", topicParameter);
     } else {
       // Refresh page with all results
       request.setAttribute("allPosts", postDao.getAllPosts());
       request.setAttribute("allUsers", userDao.getAllUsers());
       request.setAttribute("allTopics", topicDao.getAllTopics());
-      request.setAttribute("allTopicContent", topicDao.getAllTopicContent());
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Post;
 import model.Profile;
+import model.Topic;
 
 @WebServlet(name = "postServlet", urlPatterns = {"/postServlet"})
 public class postServlet extends HttpServlet {
@@ -39,45 +40,46 @@ public class postServlet extends HttpServlet {
          *********************************************************************
      */
     if (action != null && !"".equals(action)) {
-      String userIdString = request.getParameter("USERID");
-      int userId = 0;
-      if (!"".equals(userIdString) && userIdString != null) {
-        userId = Integer.parseInt(userIdString);
-      }
-
-      String content = request.getParameter("CONTENT");
-
-      String parentIdString = request.getParameter("PARENT");
-      int parentId = 0;
-
-      String topicIdString = session.getAttribute("topicId").toString();
-      int topicId = Integer.parseInt(topicIdString);
-      if (!"".equals(topicIdString) && topicIdString != null) {
-        topicId = Integer.parseInt(topicIdString);
-      }
-
-      String username = request.getParameter("USERNAME");
-      String password = request.getParameter("PASSWORD");
-      Post post = new Post(userId, content, parentId, topicId);
-      Profile user = new Profile(username, password);
 
       if ("addPost".equalsIgnoreCase(action)) {
+        String userIdString = request.getParameter("USERID");
+        int userId = Integer.parseInt(userIdString);
+        String parentIdString = request.getParameter("POSTID");
+        String content = request.getParameter("CONTENT");
+        int parentId = Integer.parseInt(parentIdString);
+        String topicIdString = session.getAttribute("topicId").toString();
+        int topicId = Integer.parseInt(topicIdString);
+        Post post = new Post(userId, content, parentId, topicId);
         postDao.addPost(post);
-      } else if ("addTopic".equalsIgnoreCase(action)) {
-                // Post newPost = new Post();
-        // Topic newTopic = new Topic();
-        topicDao.addTopic(null);
-      } else if ("addUser".equalsIgnoreCase(action)) {
+        request.setAttribute("post", post);
+      }
+      
+      else if ("addTopic".equalsIgnoreCase(action)) {
+        String userIdString = request.getParameter("USERID");
+        int userId = Integer.parseInt(userIdString);
+        String categoryIdString = request.getParameter("CATEGORYID");
+        String content = request.getParameter("CONTENT");
+        int categoryId = Integer.parseInt(categoryIdString);
+        Topic newTopic = new Topic(userId, categoryId, content);
+        topicDao.addTopic(newTopic);
+        request.setAttribute("topic", newTopic);
+      }
+      
+      else if ("addUser".equalsIgnoreCase(action)) {
+        String username = request.getParameter("USERNAME");
+        String password = request.getParameter("PASSWORD");
+        Profile user = new Profile(username, password);
         if (userDao.userExists(username)) {
           request.setAttribute("message", "Username already exists");
         } else {
           userDao.addUser(user);
         }
+        request.setAttribute("user", user);
       }
-
-      request.setAttribute("post", post);
-      request.setAttribute("user", user);
+      
+      String topicIdString = session.getAttribute("topicId").toString();
       response.sendRedirect("mainServlet?topicId=" + topicIdString);
+      
     } else {
       // Not sure how this would be reached. Just redirect to main page
       request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -8,6 +8,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import model.Topic;
 
+// Reference SQL call (when getting topic content via postId)
+// "SELECT p.CONTENT FROM Post p WHERE p.POSTID = " + Integer.toString(postId)
+
 @Stateless
 public class TopicDao implements TopicDaoLocal{
     
@@ -38,25 +41,6 @@ public class TopicDao implements TopicDaoLocal{
     public List<Topic> getAllTopics() {
         Query queryUser = em.createQuery("SELECT e FROM Topic e");
         return queryUser.getResultList();
-    }
-    
-    @Override
-    public String getTopicContent(int topicId){
-        Topic topic = getTopic(topicId);
-        System.out.println("Returned topic postId: " + topic.getPOSTID());
-        int postId = topic.getPOSTID();
-        Query queryUser = em.createQuery("SELECT p.CONTENT FROM Post p WHERE p.POSTID = " + Integer.toString(postId));
-        return queryUser.getSingleResult().toString();
-    }
-    
-    @Override
-    public List<String> getAllTopicContent(){
-        List<Topic> allTopics = getAllTopics();
-        List<String> allTopicContent = new ArrayList<String>();
-        for(Topic t: allTopics){
-            allTopicContent.add(getTopicContent(t.getTOPICID()));
-        }
-        return allTopicContent;
     }
     
 }

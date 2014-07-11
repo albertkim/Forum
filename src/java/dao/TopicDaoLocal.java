@@ -17,8 +17,4 @@ public interface TopicDaoLocal {
     
     List<Topic> getAllTopics();
     
-    String getTopicContent(int topicId);
-    
-    List<String> getAllTopicContent();
-    
 }
