@@ -27,7 +27,6 @@ public class mainServlet extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     HttpSession session = request.getSession(true);
-    String action = request.getParameter("action");
     request.setAttribute("message", "No messages");
 
     /**

@@ -14,28 +14,26 @@
   </head>
 
   <body>
-    <div class="leftpanel">
-      <h1>Debate Platform</h1>
-      <h5>${message}</h5>
-      <form action="./mainServlet" method="POST">
+    
+    <div class="upperleftpanel">
+       <form action="./mainServlet" method="POST">
         <input type="submit" name="reload" value="Home" />
       </form>
-
-      <br>
-
+    </div>
+    
+    <div class="leftpanel">
+      <h5>${message}</h5>
       <!-- Topic table -->
       <div id="topicDiv" class="backgroundbox" style="float: left; height: auto; overflow: hidden;">
         <h4>Topics</h4>
         <c:forEach items="${allTopics}" varStatus="row">
           <tr>
             <div class="topicElement">
-              <div class="categoryWrapper">${allTopics[row.index].CONTENT}</div>
-              <div class="topicWrapper">${allTopics[row.index].TOPICID}</div>
+              <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
+              <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
             </div>
           </tr>
-          <div style="height: 5px;"></div>
         </c:forEach>
-        <br>
         <form action="./postServlet" method="POST">
           <table>
             <tr>
@@ -44,15 +42,18 @@
               <!-- TODO: Get user from session -->
               <td><input type="hidden" name="USERID" value="1"/></td>
               <td><input type="hidden" name="CATEGORYID" value="1"/></td>
+              <td><input type="submit" name="action" value="addTopic"/></td>
             </tr>
           </table>
-          <input type="submit" name="action" value="addTopic"/>
         </form>
       </div>
     </div>
 
     <div class="toppanel">
-
+      <h1>DEBATE PLATFORM</h1>
+    </div>
+            
+    <div class="upperrightpanel">
       <div id="userDiv" class="backgroundbox" style="width: 250px; height: auto; float: right;">
         <table style="" id="userTable">
           <th>userId</th>
@@ -86,11 +87,12 @@
         <c:when test="${not empty param.topicId}">
           <div id="postDivWrapper" class="backgroundbox" style="width: 1050px; height: auto; overflow: hidden;">
             <div id="postDiv" style="float: left;">
-              <h4>Posts</h4>
               <c:forEach items="${allPosts}" var="post">
                 <div class="postElement">
-                  <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
-                  <div class="contentWrapper">${post.CONTENT}</div>
+                  <div style="width: auto; height: auto; overflow: hidden;">
+                    <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
+                    <div class="contentWrapper">${post.CONTENT}</div>
+                  </div>
                   <div class="detailsWrapper" hidden>
                     <form class="responseForm" action="./postServlet" method="POST">
                       <table>
@@ -98,9 +100,10 @@
                           <td>Reply:</td>
                           <td><input type="text" name="CONTENT" value=""/></td>
                           <td><input type="hidden" name="POSTID" value="${post.POSTID}"/></td>
+                          <td><input type="hidden" name="USERID" value="1"/></td>
+                          <td><input type="submit" name="action" value="addPost"/></td>
                         </tr>
                       </table>
-                      <input type="submit" name="action" value="addPost"/>
                     </form>
                   </div>
                 </div>
@@ -112,9 +115,12 @@
                   <tr>
                     <td>Reply:</td>
                     <td><input type="text" name="CONTENT" value="${post.CONTENT}"/></td>
+                    <td><input type="hidden" name="POSTID" value="0"/></td>
+                    <td><input type="hidden" name="USERID" value="1"/></td>
+                    <td><input type="submit" name="action" value="addPost"/></td>
                   </tr>
                 </table>
-                <input type="submit" name="action" value="addPost"/>
+                
               </form>
             </div>
           </div>

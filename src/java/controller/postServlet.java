@@ -46,6 +46,14 @@ public class postServlet extends HttpServlet {
         int userId = Integer.parseInt(userIdString);
         String parentIdString = request.getParameter("POSTID");
         String content = request.getParameter("CONTENT");
+        
+        if("".equals(content)){
+          request.setAttribute("message", "Cannot make an empty post");
+          String referer = request.getHeader("Referer");
+          response.sendRedirect(referer);
+          return;
+        }
+        
         int parentId = Integer.parseInt(parentIdString);
         String topicIdString = session.getAttribute("topicId").toString();
         int topicId = Integer.parseInt(topicIdString);
@@ -62,7 +70,6 @@ public class postServlet extends HttpServlet {
         int categoryId = Integer.parseInt(categoryIdString);
         Topic newTopic = new Topic(userId, categoryId, content);
         topicDao.addTopic(newTopic);
-        request.setAttribute("topic", newTopic);
       }
       
       else if ("addUser".equalsIgnoreCase(action)) {
@@ -77,8 +84,8 @@ public class postServlet extends HttpServlet {
         request.setAttribute("user", user);
       }
       
-      String topicIdString = session.getAttribute("topicId").toString();
-      response.sendRedirect("mainServlet?topicId=" + topicIdString);
+      String referer = request.getHeader("Referer");
+      response.sendRedirect(referer);
       
     } else {
       // Not sure how this would be reached. Just redirect to main page

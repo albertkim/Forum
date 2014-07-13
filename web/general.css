@@ -1,47 +1,66 @@
 body{
-  font-family: Helvetica;
+  font-family: Tahoma;
 }
 
-table{
-  border: 1px solid black;
-  background-color: #FFFFFF;
+h1{
+  font-family: Tw Cen MT Condensed;
+  font-size: 3em;
+  color: white;
 }
 
 .backgroundbox{
-  background-color: #E0E0E0;
-  border: 2px solid;
-  border-radius: 2px;
-  box-shadow: 10px 10px 5px #888888;
   padding: 5px;
+}
+
+.upperleftpanel{
+  position: fixed;
+  left: 0px;
+  top: 0;
+  height: 95px;
+  width: 350px;
+  background-color: #989898 ;
+  padding: 10px;
+  z-index: 9;
+}
+
+.upperrightpanel{
+  position: fixed;
+  right: 0px;
+  top: 0;
+  height: 95px;
+  width: 345px;
+  background-color: #989898 ;
+  padding: 10px;
+  z-index: 9;
 }
 
 .leftpanel{
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 350px;
-  height: 100%;
-  background-color: #E0E0E0 ;
-  border-left: 1px solid #353535;
+  height: calc(100% - 140px);
+  background-color: #989898;
   padding: 10px;
   z-index: 9;
 }
 
 .toppanel{
   position: fixed;
-  left: 350px;
+  left: 375px;
   top: 0;
-  height: 50px;
-  width: calc(100% - 350px);
-  background-color: #E0E0E0 ;
+  height: 95px;
+  width: calc(80% - 380px);
+  background-color: #989898;
+  padding: 10px;
   z-index: 9;
 }
 
 .mainpanel{
   position: relative;
   overflow: auto;
-  left: 400px;
-  top: 60px;
+  left: 370px;
+  top: 120px;
   width: calc(100% - 350px);
   z-index: 8;
 }
@@ -51,91 +70,71 @@ table{
 .topicElement{
   width: 300px;
   height: 60px;
-  background-color: #FFFFFF ;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #888888;
+  font-size: 1.1em;
 }
 
-.topicWrapper{
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin: 5px;
+.topicElement.selected{
+  width: 300px;
+  height: 60px;
   border-radius: 5px;
   border-width: thin;
   border-style: solid;
-  border-color: #888888;
+  border-color: white;
 }
 
 .categoryWrapper{
-  width: 230px;
+  width: 20px;
+  height: 40px;
+  float: left;
+  margin: 5px;
+}
+
+.topicWrapper{
+  width: 250px;
   height: 40px;
   float: right;
-  padding: 2px;
   margin: 5px;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #888888;
 }
 
 /* Post element */
 
 .postElement{
   width: 1000px;
-  height: 60px;
-  background-color: appworkspace;
+  height: auto;
   border-radius: 5px;
   border-width: thin;
   border-style: solid;
-  border-color: #888888;
+  border-color: #D0D0D0;
 }
 
+/* Should be set from javascript */
 .postElement.selected{
   width: 1000px;
   height: 120px;
-  background-color: #C0C0C0;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #888888;
+  background-color: #F0F0F0;
 }
 
 .userWrapper{
-  width: 40px;
-  height: 40px;
-  float: left;
+  width: 55px;
+  height: 55px;
   margin: 5px;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #888888;
-  background-color: #FFFFFF;
+  float: left;
+  background-color: #70AD8D;
 }
 
 .contentWrapper{
-  width: 930px;
-  height: 40px;
-  float: right;
+  width: 920px;
+  min-height: 55px;
   padding: 2px;
   margin: 5px;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #888888;
-  background-color: #FFFFFF;
+  float: right
 }
 
 .detailsWrapper{
-  position: relative;
-  bottom: 0px;
   width: 1000px;
-  height: 60px;
-  top: 60px;
+  bottom: 0px;
 }
 
 .responseForm{
-  position: absolute;
+  
 }

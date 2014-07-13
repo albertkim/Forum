@@ -10,7 +10,7 @@ PostsPage = (function(){
   var initTopicHandlers = function(){
     $(".topicElement").on("click", function(){
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      var parameters = "?" + "topicId=" + $(this).find(".topicWrapper").html().toString();
+      var parameters = "?" + "topicId=" + $(this).find(".categoryWrapper").html().toString();
       console.log(url + parameters);
       location.href = (url + parameters);
     });
