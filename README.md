@@ -16,3 +16,9 @@ To Do:
 *     Add rating system per post, store in db
 *     Sort posts chronologically, add option for sorting by rating
 *     Implement sessions
+
+Progress screenshots:
+
+![Alt text](/src/img/July_6.jpg?raw=true "July 6")
+![Alt text](/src/img/July_12.jpg?raw=true "July 12")
+![Alt text](/src/img/July_13.jpg?raw=true "July 13")
