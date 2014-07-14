@@ -28,7 +28,7 @@
       <h5>${message}</h5>
       <!-- Topic table -->
       <div id="topicDiv" class="backgroundbox" style="float: left; height: auto; overflow: hidden;">
-        <h4>Topics</h4>
+        <h4>TOPICS</h4>
         <c:forEach items="${allTopics}" varStatus="row">
           <tr>
             <div class="topicElement">

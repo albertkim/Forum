@@ -9,13 +9,15 @@ PostsPage = (function(){
   };
   
   var initTopicHandlers = function(){
+    // Highlight current topic
+    
     $(".topicElement").on("click", function(){
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
       var parameters = "?" + "topicId=" + $(this).find(".categoryWrapper").html().toString();
       console.log(url + parameters);
       location.href = (url + parameters);
     });
-  }
+  };
   
   var initPostHandlers = function(){
     $(".postElement").on("click", function(){
@@ -30,7 +32,7 @@ PostsPage = (function(){
         $(this).find(".detailsWrapper").show();
       }
     });
-  }
+  };
   
   var initRegisterHandlers = function(){
     // Register button should bring up popup
@@ -44,7 +46,7 @@ PostsPage = (function(){
       $(".popup-background").hide();
       $(".register-popup-wrapper").hide();
     });
-  }
+  };
   
   return {
     init: init
