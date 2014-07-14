@@ -107,7 +107,6 @@ h1{
   border-color: #D0D0D0;
 }
 
-/* Should be set from javascript */
 .postElement.selected{
   width: 1000px;
   height: 120px;

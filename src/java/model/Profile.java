@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+// Imports for password hashing
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.math.BigInteger;
 
 @Entity
 @Table
@@ -29,16 +33,20 @@ public class Profile implements Serializable {
   private java.sql.Date DATECREATED;
   @Column
   private java.sql.Date LASTLOGIN;
-    // avatar blob
+  // avatar blob
+  
+  // Password hashing variables
+  private static final int ITERATIONS = 1000;
+  private static final int KEY_LENGTH = 192; // bits
+  private static final String salt = "HERPDERPLOL";
 
   public Profile() {
 
   }
 
-  public Profile(String username, String password) {
-    // Auto-increment password somehow?
+  public Profile(String username, String password) throws Exception{
     this.USERNAME = username;
-    this.PASSWORD = password;
+    this.setPASSWORD(password);
 
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
@@ -65,8 +73,8 @@ public class Profile implements Serializable {
     return PASSWORD;
   }
 
-  public void setPASSWORD(String PASSWORD) {
-    this.PASSWORD = PASSWORD;
+  public void setPASSWORD(String PASSWORD) throws Exception{
+    this.PASSWORD = hashPassword(PASSWORD);
   }
 
   public java.sql.Date getDATECREATED() {
@@ -83,6 +91,21 @@ public class Profile implements Serializable {
 
   public void setLASTLOGIN(java.sql.Date LASTLOGIN) {
     this.LASTLOGIN = LASTLOGIN;
+  }
+  
+  public static String hashPassword(String password) throws Exception{
+    char[] passwordChars = password.toCharArray();
+    byte[] saltBytes = salt.getBytes();
+
+    PBEKeySpec spec = new PBEKeySpec(
+        passwordChars,
+        saltBytes,
+        ITERATIONS,
+        KEY_LENGTH
+    );
+    SecretKeyFactory key = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+    byte[] hashedPassword = key.generateSecret(spec).getEncoded();
+    return String.format("%x", new BigInteger(hashedPassword));
   }
 
 }

@@ -27,13 +27,7 @@ public class mainServlet extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     HttpSession session = request.getSession(true);
-    request.setAttribute("message", "No messages");
 
-    /**
-     * *********************************************************************
-     * READ URL PARAMETERS
-         *********************************************************************
-     */
     String topicParameter = request.getParameter("topicId");
     if (topicParameter != null && !"".equals(topicParameter)) {
       // The displayed posts will be different
@@ -43,6 +37,7 @@ public class mainServlet extends HttpServlet {
       request.setAttribute("allTopics", topicDao.getAllTopics());
       session.setAttribute("topicId", topicParameter);
     } else {
+      session.setAttribute("message", "No messages");
       // Refresh page with all results
       request.setAttribute("allPosts", postDao.getAllPosts());
       request.setAttribute("allUsers", userDao.getAllUsers());
@@ -50,6 +45,8 @@ public class mainServlet extends HttpServlet {
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);
+    session.setAttribute("message", "No messages");
+
 
   }
 

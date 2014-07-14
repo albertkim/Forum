@@ -19,4 +19,6 @@ public interface ProfileDaoLocal{
     
     boolean userExists(String username);
     
+    boolean verifyUser(String username, String password);
+    
 }

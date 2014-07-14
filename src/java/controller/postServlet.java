@@ -6,6 +6,7 @@ import dao.TopicDaoLocal;
 import java.io.IOException;
 import java.util.Date;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,13 +33,8 @@ public class postServlet extends HttpServlet {
 
     HttpSession session = request.getSession(true);
     String action = request.getParameter("action");
-    request.setAttribute("message", "No messages");
+    session.setAttribute("message", "No messages");
 
-    /**
-     * *********************************************************************
-     * FORM INPUT
-         *********************************************************************
-     */
     if (action != null && !"".equals(action)) {
 
       if ("addPost".equalsIgnoreCase(action)) {
@@ -48,7 +44,7 @@ public class postServlet extends HttpServlet {
         String content = request.getParameter("CONTENT");
         
         if("".equals(content)){
-          request.setAttribute("message", "Cannot make an empty post");
+          session.setAttribute("message", "Cannot make an empty post");
           String referer = request.getHeader("Referer");
           response.sendRedirect(referer);
           return;
@@ -72,16 +68,22 @@ public class postServlet extends HttpServlet {
         topicDao.addTopic(newTopic);
       }
       
-      else if ("addUser".equalsIgnoreCase(action)) {
+      else if ("register".equalsIgnoreCase(action)) {
         String username = request.getParameter("USERNAME");
         String password = request.getParameter("PASSWORD");
-        Profile user = new Profile(username, password);
-        if (userDao.userExists(username)) {
-          request.setAttribute("message", "Username already exists");
-        } else {
-          userDao.addUser(user);
+        try{
+          Profile user = new Profile(username, password);
+          if (userDao.userExists(username)) {
+            session.setAttribute("message", "Username already exists");
+          } else {
+            userDao.addUser(user);
+          }
+          request.setAttribute("user", user);
+        } catch(Exception e){
+          System.out.println("Failed to create user " + username + " with password " + password);
+          e.printStackTrace();
+          session.setAttribute("message", "User could not be created");
         }
-        request.setAttribute("user", user);
       }
       
       String referer = request.getHeader("Referer");

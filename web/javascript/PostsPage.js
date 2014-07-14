@@ -5,6 +5,7 @@ PostsPage = (function(){
     $.extend(config, settings);
     initTopicHandlers();
     initPostHandlers();
+    initRegisterHandlers();
   };
   
   var initTopicHandlers = function(){
@@ -28,6 +29,20 @@ PostsPage = (function(){
         $(this).addClass("selected");
         $(this).find(".detailsWrapper").show();
       }
+    });
+  }
+  
+  var initRegisterHandlers = function(){
+    // Register button should bring up popup
+    $(".registerButton").on("click", function(){
+      $(".popup-background").show();
+      $(".register-popup-wrapper").show();
+    });
+    
+    // Popup close button should close popup
+    $(".popupCloseButton").on("click", function(){
+      $(".popup-background").hide();
+      $(".register-popup-wrapper").hide();
     });
   }
   

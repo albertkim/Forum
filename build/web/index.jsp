@@ -7,13 +7,16 @@
   <!-- State variables -->
 
   <head>
-    <link rel="stylesheet" type="text/css" href="general.css">
-    <script type="text/javascript" src="PostsPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <script type="text/javascript" src="javascript/PostsPage.js"></script>
+    <script type="text/javascript" src="javascript/utilities.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate Platform</title>
   </head>
 
   <body>
+    
+    <jsp:include page="WEB-INF/register.jsp"/>
     
     <div class="upperleftpanel">
        <form action="./mainServlet" method="POST">
@@ -54,19 +57,8 @@
     </div>
             
     <div class="upperrightpanel">
-      <div id="userDiv" class="backgroundbox" style="width: 250px; height: auto; float: right;">
-        <table style="" id="userTable">
-          <th>userId</th>
-          <th>username</th>
-            <c:forEach items="${allUsers}" var="user">
-            <tr>
-              <td>${user.USERID}</td>
-              <td>${user.USERNAME}</td>
-            </tr>
-          </c:forEach>
-        </table>
-        <form action="./postServlet" method="POST">         
-          <h4>Register:</h4>
+      <div id="userDiv" class="backgroundbox" style="width: 250px; height: auto;">
+        <form action="./loginServlet" method="POST">         
           <table>
             <tr>
               <td>Username</td>
@@ -74,10 +66,12 @@
             </tr>
             <tr>
               <td>Password</td>
-              <td><input type="text" name="PASSWORD" value="${user.PASSWORD}"/></td>
+              <td><input type="password" name="PASSWORD" value="${user.PASSWORD}"/></td>
             </tr>
           </table>
-          <input type="submit" name="action" value="addUser" />
+          <input  style="float: right;" type="submit" name="action" value="login" />
+          <!-- Functionality for this set through Javascript -->
+          <button type="button" class="registerButton" style="float: left">Register</button>
         </form>
       </div>
     </div>
