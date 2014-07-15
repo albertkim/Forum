@@ -10,12 +10,12 @@ To Do:
 * (x) Fix up Topic data structure
 * (x) Add working user register/login system
 *     Show topic/post statistics
+*     Admin functionality (removal of posts, editing, etc)
 *     Use ajax to load tables instead of refreshing whole page
 *     Fix up Category data strucutre
 *     Implement Categories
 *     Add rating system per post, store in db
 *     Sort posts chronologically, add option for sorting by rating
-*     Implement sessions
 
 Progress screenshots:
 
