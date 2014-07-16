@@ -23,7 +23,6 @@ public class Post implements Serializable {
   private int POSTID;
   @Column
   private int USERID;
-  // private Date date;
   @Column
   private String CONTENT;     // Contents of the post
   @Column

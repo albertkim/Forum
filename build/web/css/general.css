@@ -3,7 +3,7 @@ body{
 }
 
 h1{
-  font-family: Tw Cen MT Condensed;
+  font-family: Helvetica;
   font-size: 3em;
   color: white;
 }
@@ -36,6 +36,7 @@ h1{
 
 .leftpanel{
   position: fixed;
+  overflow: auto;
   bottom: 0;
   left: 0;
   width: 350px;
@@ -61,32 +62,28 @@ h1{
   overflow: auto;
   left: 370px;
   top: 120px;
-  width: calc(100% - 350px);
+  width: calc(100% - 370px);
   z-index: 8;
 }
 
 /* Topic element */
 
 .topicElement{
-  width: 300px;
-  height: 60px;
+  width: 340px;
+  height: auto;
   font-size: 1.1em;
 }
 
 .topicElement:hover{
-  width: 300px;
-  height: 60px;
   background-color: #F0F0F0;
 }
 
 .topicElement.selected{
-  width: 300px;
-  height: 60px;
   background-color: #F0F0F0;
 }
 
 .categoryWrapper{
-  width: 20px;
+  width: 25px;
   height: 40px;
   float: left;
   margin: 5px;
@@ -95,14 +92,36 @@ h1{
 .topicWrapper{
   width: 250px;
   height: 40px;
-  float: right;
+  float: left;
   margin: 5px;
+}
+
+.topicDetailsWrapper{
+  position: relative;
+  left: 45px;
+  font-size: 0.7em;
+  margin: 5px;
+}
+
+.deleteTopic{
+  float: right;
+  width: 14px;
+  height: 14px;
+  text-decoration: none;
+}
+
+.deleteTopic:before{
+  content: "x";
+}
+
+.deleteTopic:hover{
+  color: red;
 }
 
 /* Post element */
 
 .postElement{
-  width: 1000px;
+  width: 1050px;
   height: auto;
   border-radius: 5px;
   border-width: thin;
@@ -111,18 +130,10 @@ h1{
 }
 
 .postElement:hover{
-  width: 1000px;
-  height: auto;
-  border-radius: 5px;
-  border-width: thin;
-  border-style: solid;
-  border-color: #D0D0D0;
   background-color: #F0F0F0;
 }
 
 .postElement.selected{
-  width: 1000px;
-  height: 120px;
   background-color: #F0F0F0;
 }
 
@@ -139,7 +150,7 @@ h1{
   min-height: 55px;
   padding: 2px;
   margin: 5px;
-  float: right
+  float: left
 }
 
 .detailsWrapper{
@@ -149,4 +160,19 @@ h1{
 
 .responseForm{
   
+}
+
+.deletePost{
+  float: right;
+  width: 14px;
+  height: 14px;
+  text-decoration: none;
+}
+
+.deletePost:before{
+  content: "x";
+}
+
+.deletePost:hover{
+  color: red;
 }

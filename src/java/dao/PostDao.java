@@ -35,7 +35,8 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public List<Post> getAllPosts() {
-    return em.createNamedQuery("Post.getAll").getResultList();
+    Query queryUser = em.createQuery("SELECT p FROM Post p");
+    return queryUser.getResultList();
   }
 
   @Override

@@ -25,6 +25,8 @@ public class Topic implements Serializable {
   private String CONTENT;
   @Column
   private java.sql.Date DATECREATED;
+  @Column
+  private java.sql.Date DATEUPDATED;
 
   public Topic() {
 
@@ -36,6 +38,7 @@ public class Topic implements Serializable {
     this.CONTENT = content;
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
+    this.DATEUPDATED = this.DATECREATED;
   }
 
   public int getTOPICID() {
@@ -76,6 +79,16 @@ public class Topic implements Serializable {
 
   public void setDATECREATED(java.sql.Date DATECREATED) {
     this.DATECREATED = DATECREATED;
+  }
+  
+  public java.sql.Date getDATEUPDATED() {
+    return this.DATEUPDATED;
+  }
+  
+  // when called, will update the DATEUPDATED field with current date
+  public void setDATEUPDATED() {
+    Date utilDate = new Date();
+    this.DATEUPDATED = new java.sql.Date(utilDate.getTime());
   }
 
 }

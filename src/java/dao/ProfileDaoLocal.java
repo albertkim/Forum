@@ -5,7 +5,7 @@ import javax.ejb.Local;
 import model.Profile;
 
 @Local
-public interface ProfileDaoLocal{
+public interface ProfileDaoLocal {
     
     void addUser(Profile user);
     

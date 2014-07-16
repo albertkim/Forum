@@ -25,16 +25,26 @@
     </div>
     
     <div class="leftpanel">
-      <h5>${message}</h5>
+      <div>${message}</div>
       <!-- Topic table -->
       <div id="topicDiv" class="backgroundbox" style="float: left; height: auto; overflow: hidden;">
         <h4>TOPICS</h4>
+        <div style="height: 1px; background-color: #D0D0D0;"></div>
         <c:forEach items="${allTopics}" varStatus="row">
           <tr>
             <div class="topicElement">
-              <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
-              <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
+              <div style="width: auto; height: auto; overflow: hidden;">
+                <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
+                <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
+                <c:choose>
+                  <c:when test="${isAdmin == 'true'}">
+                    <a href="#" class="deleteTopic"></a>
+                  </c:when>
+                </c:choose>
+              </div>
+              <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | 0 Replies</div>
             </div>
+            <div style="height: 1px; background-color: #D0D0D0;"></div>
           </tr>
         </c:forEach>
         <form action="./postServlet" method="POST">
@@ -86,6 +96,11 @@
                   <div style="width: auto; height: auto; overflow: hidden;">
                     <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
                     <div class="contentWrapper">${post.CONTENT}</div>
+                    <c:choose>
+                      <c:when test="${isAdmin == 'true'}">
+                        <a href="#" class="deletePost"></a>
+                      </c:when>
+                    </c:choose>
                   </div>
                   <div class="detailsWrapper" hidden>
                     <form class="responseForm" action="./postServlet" method="POST">

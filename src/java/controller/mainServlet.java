@@ -19,8 +19,6 @@ public class mainServlet extends HttpServlet {
   private ProfileDaoLocal userDao;
   @EJB
   private TopicDaoLocal topicDao;
-    // @EJB
-  // private CategoryDaoLocal categoryDao;
   @EJB
   private PostDaoLocal postDao;
 
