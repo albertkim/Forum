@@ -5,17 +5,16 @@ Basic forum. My goal here is to learn how the components of a web project come t
 
 To Do:
 
-* (x) Get basic forum structure up
-* (x) Get all forms working properly
-* (x) Fix up Topic data structure
-* (x) Add working user register/login system
-*     Show topic/post statistics
-*     Admin functionality (removal of posts, editing, etc)
-*     Use ajax to load tables instead of refreshing whole page
-*     Fix up Category data strucutre
-*     Implement Categories
-*     Add rating system per post, store in db
-*     Sort posts chronologically, add option for sorting by rating
+* (done)          Get basic forum structure up
+* (done)          Get all forms working properly
+* (done)          Fix up Topic data structure
+* (done)          Add working user register/login system
+*                 Implement Categories (do this ASAP before things get too complicated)
+*                 Show topic/post statistics
+* (in progress)   Admin functionality (removal of posts, editing, etc)
+* (in progress)   Use ajax to load tables instead of refreshing whole page
+*                 Add rating system per post, store in db
+*                 Sort posts chronologically, add option for sorting by rating
 
 Progress screenshots:
 
