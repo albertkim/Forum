@@ -19,9 +19,7 @@
     <jsp:include page="WEB-INF/register.jsp"/>
     
     <div class="upperleftpanel">
-       <form action="./mainServlet" method="POST">
-        <input type="submit" name="reload" value="Home" />
-      </form>
+      
     </div>
     
     <div class="leftpanel">
@@ -32,7 +30,14 @@
         <div style="height: 1px; background-color: #D0D0D0;"></div>
         <c:forEach items="${allTopics}" varStatus="row">
           <tr>
-            <div class="topicElement">
+            <c:choose>
+              <c:when test="${allTopics[row.index].TOPICID == param.topicId}">
+                <div class="topicElement selected" topicId="${allTopics[row.index].TOPICID}">
+              </c:when>
+              <c:otherwise>
+                <div class="topicElement" topicId="${allTopics[row.index].TOPICID}">
+              </c:otherwise>
+            </c:choose>
               <div style="width: auto; height: auto; overflow: hidden;">
                 <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
                 <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
@@ -63,7 +68,7 @@
     </div>
 
     <div class="toppanel">
-      <h1>DEBATE PLATFORM</h1>
+      <div class="title"><h1>DEBATE PLATFORM</h1></div>
     </div>
             
     <div class="upperrightpanel">
@@ -79,7 +84,8 @@
               <td><input type="password" name="PASSWORD" value="${user.PASSWORD}"/></td>
             </tr>
           </table>
-          <input  style="float: right;" type="submit" name="action" value="login" />
+          <input  style="float: right;" type="submit" name="action" value="login"/>
+          <input  style="float: right;" type="submit" name="action" value="logout"/>
           <!-- Functionality for this set through Javascript -->
           <button type="button" class="registerButton" style="float: left">Register</button>
         </form>
@@ -92,13 +98,13 @@
           <div id="postDivWrapper" class="backgroundbox" style="width: 1050px; height: auto; overflow: hidden;">
             <div id="postDiv" style="float: left;">
               <c:forEach items="${allPosts}" var="post">
-                <div class="postElement">
+                <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
                   <div style="width: auto; height: auto; overflow: hidden;">
                     <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
                     <div class="contentWrapper">${post.CONTENT}</div>
                     <c:choose>
                       <c:when test="${isAdmin == 'true'}">
-                        <a href="#" class="deletePost"></a>
+                        <a href="#" class="deletePost" postId="${post.POSTID}" topicId="${param.topicId}"></a>
                       </c:when>
                     </c:choose>
                   </div>

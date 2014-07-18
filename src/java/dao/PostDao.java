@@ -20,7 +20,7 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public void deletePost(int postId) {
-    em.remove(postId);
+    em.remove(getPost(postId));
   }
 
   @Override

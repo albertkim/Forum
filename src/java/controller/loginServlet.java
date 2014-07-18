@@ -59,7 +59,11 @@ public class loginServlet extends HttpServlet {
           System.out.println("Couldn't hash password " + password);
           e.printStackTrace();
         }
-
+      }
+      if("logout".equalsIgnoreCase(action)){
+        session.removeAttribute("currentUser");
+        session.removeAttribute("isAdmin");
+        session.setAttribute("message", "Logged out");
       }
       
       String referer = request.getHeader("Referer");

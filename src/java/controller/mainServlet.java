@@ -28,6 +28,9 @@ public class mainServlet extends HttpServlet {
 
     String topicParameter = request.getParameter("topicId");
     if (topicParameter != null && !"".equals(topicParameter)) {
+      // TODO: Return to home page if topic does not exist
+      
+      
       // The displayed posts will be different
       int topicId = Integer.parseInt(topicParameter);
       request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
