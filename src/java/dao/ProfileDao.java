@@ -32,6 +32,13 @@ public class ProfileDao implements ProfileDaoLocal {
   public Profile getUser(int profileId) {
     return em.find(Profile.class, profileId);
   }
+  
+  @Override
+  public Profile getUser(String username) {
+    Query queryUser = em.createQuery("SELECT e FROM Profile e WHERE e.USERNAME = :username");
+    queryUser.setParameter("username", username);
+    return (Profile) queryUser.getSingleResult();
+  }
 
   @Override
   public List<Profile> getAllUsers() {

@@ -15,6 +15,8 @@ public interface ProfileDaoLocal {
     
     Profile getUser(int userId);
     
+    Profile getUser(String username);
+    
     List<Profile> getAllUsers();
     
     boolean userExists(String username);

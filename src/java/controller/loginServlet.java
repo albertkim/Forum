@@ -40,7 +40,7 @@ public class loginServlet extends HttpServlet {
             if(profileDao.verifyUser(username, password)){
               System.out.println("User " + username + " has successfully logged in");
               session.setAttribute("message", "Logged in successfully");
-              session.setAttribute("currentUser", username);
+              session.setAttribute("currentUser", profileDao.getUser(username));
               if(adminDao.isAdmin(username)){
                 session.setAttribute("isAdmin", "true");
               }

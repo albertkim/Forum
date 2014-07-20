@@ -20,18 +20,19 @@ h1{
   top: 0;
   height: 95px;
   width: 350px;
-  background-color: #989898 ;
+  background-color: #336699;
   padding: 10px;
   z-index: 9;
 }
 
 .upperrightpanel{
+  color: white;
   position: fixed;
   right: 0px;
   top: 0;
   height: 95px;
   width: 345px;
-  background-color: #989898 ;
+  background-color: #336699;
   padding: 10px;
   z-index: 9;
 }

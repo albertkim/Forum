@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html>
 
-  <!-- State variables -->
-
   <head>
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <link rel="stylesheet" type="text/css" href="css/LeftPanel.css">
@@ -14,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/TopPanel.css">
     <script type="text/javascript" src="javascript/PostsPage.js"></script>
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
+    <script type="text/javascript" src="javascript/Login.js"></script>
     <script type="text/javascript" src="javascript/utilities.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
@@ -35,7 +34,7 @@
         </c:when>
         <c:otherwise>
           <div>
-            Select a category above
+            Select a category
           </div>
         </c:otherwise>
       </c:choose>
