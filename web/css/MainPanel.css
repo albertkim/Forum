@@ -1,0 +1,65 @@
+.mainpanel{
+  position: relative;
+  overflow: auto;
+  left: 370px;
+  top: 120px;
+  width: calc(100% - 370px);
+  z-index: 8;
+}
+
+.postElement{
+  width: 1050px;
+  height: auto;
+  border-radius: 5px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #D0D0D0;
+}
+
+.postElement:hover{
+  background-color: #F0F0F0;
+}
+
+.postElement.selected{
+  background-color: #F0F0F0;
+}
+
+.userWrapper{
+  width: 55px;
+  height: 55px;
+  margin: 5px;
+  float: left;
+  background-color: #70AD8D;
+}
+
+.contentWrapper{
+  width: 920px;
+  min-height: 55px;
+  padding: 2px;
+  margin: 5px;
+  float: left
+}
+
+.detailsWrapper{
+  width: 1000px;
+  bottom: 0px;
+}
+
+.responseForm{
+  
+}
+
+.deletePost{
+  float: right;
+  width: 14px;
+  height: 14px;
+  text-decoration: none;
+}
+
+.deletePost:before{
+  content: "x";
+}
+
+.deletePost:hover{
+  color: red;
+}

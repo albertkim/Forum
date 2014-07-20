@@ -34,8 +34,8 @@ public class TopicAction extends HttpServlet {
         // Get new list of posts
         String currentTopicId = request.getParameter("topicId").toString();
         List<Topic> allTopics = topicDao.getAllTopics();
-        String allPostsJson = new Gson().toJson(allTopics);
-        response.getWriter().write(allPostsJson);
+        String allTopicsJson = new Gson().toJson(allTopics);
+        response.getWriter().write(allTopicsJson);
       }
     }
   }

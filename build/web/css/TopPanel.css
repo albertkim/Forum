@@ -1,0 +1,10 @@
+.toppanel{
+  position: fixed;
+  left: 375px;
+  top: 0;
+  height: 95px;
+  width: calc(80% - 380px);
+  background-color: #989898;
+  padding: 10px;
+  z-index: 9;
+}

@@ -7,11 +7,15 @@ public interface CategoryDaoLocal {
     
     void addCategory(Category category);
     
+    void addCategory(String name);
+    
     void deleteCategory(int id);
     
-    void editCategory(Category category);
-    
     Category getCategory(int id);
+    
+    Category getCategory(String name);
+    
+    int getCategoryId(String name);
     
     List<Category> getAllCategories();
     

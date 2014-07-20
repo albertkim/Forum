@@ -57,29 +57,30 @@ PostsPage = (function() {
     });
   };
   
-  var initDeleteTopicHandlers = function() {
+  var initDeleteTopicHandlers = function(event) {
     $(".deleteTopic").on("click", function(){
       var topicId = $(this).attr("topicId");
       var currentTopicId = $(this).attr("currentTopicId");
       $.ajax({
-        url: "postAction",
+        url: "topicAction",
         data: {
           action: "deleteTopic",
           topicId: topicId,
           currentTopicId: currentTopicId
         },
         success: function(data){
-          console.log(data);
+          console.log("data: " + data);
           // New post set gets returned in ajax form
           // TODO: Implement Backbone.js to display elements properly
           // For now, just refresh the page
           location.reload();
         }
       });
+      event.stopImmediatePropagation();
     });
   };
   
-  var initDeletePostHandlers = function() {
+  var initDeletePostHandlers = function(event) {
     $(".deletePost").on("click", function(){
       var postId = $(this).attr("postId");
       var topicId = $(this).attr("topicId");
@@ -91,7 +92,7 @@ PostsPage = (function() {
           topicId: topicId
         },
         success: function(data){
-          console.log(data);
+          console.log("data: " + data);
           // New post set gets returned in ajax form
           // TODO: Implement Backbone.js to display elements properly
           // For now, just refresh the page

@@ -28,11 +28,13 @@ public class mainServlet extends HttpServlet {
 
     String topicParameter = request.getParameter("topicId");
     if (topicParameter != null && !"".equals(topicParameter)) {
-      // TODO: Return to home page if topic does not exist
-      
-      
-      // The displayed posts will be different
       int topicId = Integer.parseInt(topicParameter);
+      // TODO: Return to home page if topic does not exist
+      if(!topicDao.topicExists(topicId)){
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+        return;
+      }
+      
       request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
       request.setAttribute("allUsers", userDao.getAllUsers());
       request.setAttribute("allTopics", topicDao.getAllTopics());
@@ -47,7 +49,6 @@ public class mainServlet extends HttpServlet {
 
     request.getRequestDispatcher("index.jsp").forward(request, response);
     session.setAttribute("message", "No messages");
-
 
   }
 

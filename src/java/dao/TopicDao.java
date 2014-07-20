@@ -42,5 +42,11 @@ public class TopicDao implements TopicDaoLocal {
     List<Topic> topicList = queryUser.getResultList();
     return topicList;
   }
+  
+  @Override
+  public boolean topicExists(int topicId) {
+    Topic topic = em.find(Topic.class, topicId);
+    return topic != null;
+  }
 
 }
