@@ -8,3 +8,15 @@
   padding: 10px;
   z-index: 9;
 }
+
+.category{
+  font-size: 1em;
+  box-sizing: border-box;
+  padding: 2px;
+}
+
+.category:hover{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #F0F0F0;
+}

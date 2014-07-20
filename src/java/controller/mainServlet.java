@@ -1,5 +1,6 @@
 package controller;
 
+import dao.CategoryDaoLocal;
 import dao.PostDaoLocal;
 import dao.ProfileDaoLocal;
 import dao.TopicDaoLocal;
@@ -21,30 +22,42 @@ public class mainServlet extends HttpServlet {
   private TopicDaoLocal topicDao;
   @EJB
   private PostDaoLocal postDao;
-
+  @EJB
+  private CategoryDaoLocal categoryDao;
+  
+  /**
+   * This servlet reads URL parameters and sends back relevant data
+   * The first parameter to read is the Category
+   * Once the category is verified, the topic parameter is read
+   * Must consider null/non-existent parameters
+   */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     HttpSession session = request.getSession(true);
-
-    String topicParameter = request.getParameter("topicId");
-    if (topicParameter != null && !"".equals(topicParameter)) {
-      int topicId = Integer.parseInt(topicParameter);
-      // TODO: Return to home page if topic does not exist
-      if(!topicDao.topicExists(topicId)){
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-        return;
-      }
+    
+    // Get categories
+    request.setAttribute("allCategories", categoryDao.getAllCategories());
+    
+    // Process category parameter
+    String category = request.getParameter("category");
+    if(category != null){
+      int categoryId = categoryDao.getCategoryId(category);
+      request.setAttribute("allTopics", topicDao.getAllTopicsByCategory(categoryId));
       
-      request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
-      request.setAttribute("allUsers", userDao.getAllUsers());
-      request.setAttribute("allTopics", topicDao.getAllTopics());
-      session.setAttribute("topicId", topicParameter);
+      // Then process topic parameter
+      String topicIdString = request.getParameter("topicId");
+      if (topicIdString != null) {
+        int topicId = Integer.parseInt(topicIdString);
+        // TODO: Return to home page if topic does not exist
+        if(!topicDao.topicExists(topicId)){
+          request.getRequestDispatcher("index.jsp").forward(request, response);
+          return;
+        }
+        request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
+        session.setAttribute("topicId", topicIdString);
+      } 
     } else {
-      session.setAttribute("message", "No messages");
-      // Refresh page with all results
-      request.setAttribute("allPosts", postDao.getAllPosts());
-      request.setAttribute("allUsers", userDao.getAllUsers());
-      request.setAttribute("allTopics", topicDao.getAllTopics());
+        session.setAttribute("message", "No messages");
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -38,7 +38,15 @@ public class TopicDao implements TopicDaoLocal {
 
   @Override
   public List<Topic> getAllTopics() {
-    Query queryUser = em.createQuery("SELECT e FROM Topic e");
+    Query queryUser = em.createQuery("SELECT e FROM Topic e ORDER BY e.TOPICID");
+    List<Topic> topicList = queryUser.getResultList();
+    return topicList;
+  }
+  
+  @Override
+  public List<Topic> getAllTopicsByCategory(int  categoryId) {
+    Query queryUser = em.createQuery("SELECT e FROM Topic e WHERE e.CATEGORYID = :categoryId ORDER BY e.TOPICID");
+    queryUser.setParameter("categoryId", categoryId);
     List<Topic> topicList = queryUser.getResultList();
     return topicList;
   }

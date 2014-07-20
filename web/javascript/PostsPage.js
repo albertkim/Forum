@@ -1,9 +1,14 @@
 PostsPage = (function() {
+  // config parameters passed in from index.jsp
+  // currentCategory
+  // currentTopic
   var config = {};
 
   var init = function(settings) {
     $.extend(config, settings);
     initTitleHandlers();
+    initCurrentCategoryHandlers();
+    initCategoryHandlers();
     initTopicHandlers();
     initPostHandlers();
     initRegisterHandlers();
@@ -18,12 +23,28 @@ PostsPage = (function() {
       location.href = (url);
     });
   };
+  
+  var initCurrentCategoryHandlers = function() {
+    $(".currentCategory").on("click", function() {
+      var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      var parameters = "?" + "category=" + config.currentCategory; 
+      location.href = (url + parameters);
+    });
+  };
+  
+  var initCategoryHandlers = function() {
+    $(".category").on("click", function() {
+      var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      var parameters = "?" + "category=" + $(this).html(); 
+      location.href = (url + parameters);
+    });
+  };
 
   var initTopicHandlers = function() {
     // Highlight current topic
     $(".topicElement").on("click", function() {
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      var parameters = "?" + "topicId=" + $(this).find(".categoryWrapper").html().toString();
+      var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).find(".categoryWrapper").html().toString();
       location.href = (url + parameters);
     });
   };

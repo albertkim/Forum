@@ -1,5 +1,6 @@
 package controller;
 
+import dao.CategoryDaoLocal;
 import dao.PostDaoLocal;
 import dao.ProfileDaoLocal;
 import dao.TopicDaoLocal;
@@ -22,8 +23,8 @@ public class postServlet extends HttpServlet {
   private ProfileDaoLocal userDao;
   @EJB
   private TopicDaoLocal topicDao;
-    // @EJB
-  // private CategoryDaoLocal categoryDao;
+  @EJB
+  private CategoryDaoLocal categoryDao;
   @EJB
   private PostDaoLocal postDao;
 
@@ -59,9 +60,10 @@ public class postServlet extends HttpServlet {
       else if ("addTopic".equalsIgnoreCase(action)) {
         String userIdString = request.getParameter("USERID");
         int userId = Integer.parseInt(userIdString);
-        String categoryIdString = request.getParameter("CATEGORYID");
+        String categoryIdString = request.getParameter("currentCategory");
+        System.out.println("categoryIdString: " + categoryIdString);
         String content = request.getParameter("CONTENT");
-        int categoryId = Integer.parseInt(categoryIdString);
+        int categoryId = categoryDao.getCategoryId(categoryIdString);
         Topic newTopic = new Topic(userId, categoryId, content);
         topicDao.addTopic(newTopic);
       }

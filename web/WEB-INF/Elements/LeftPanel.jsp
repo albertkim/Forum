@@ -13,20 +13,20 @@
         <div class="topicElement" topicId="${allTopics[row.index].TOPICID}">
       </c:otherwise>
     </c:choose>
-    <div style="width: auto; height: auto; overflow: hidden;">
-      <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
-      <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
-      <c:choose>
-        <c:when test="${isAdmin == 'true'}">
-          <a href="#" class="deleteTopic" topicId="${allTopics[row.index].TOPICID}" currentTopicId="param.topicId"></a>
-        </c:when>
-      </c:choose>
-    </div>
-    <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | 0 Replies</div>
-</div>
-<div style="height: 1px; background-color: #D0D0D0;"></div>
-</tr>
-</c:forEach>
+      <div style="width: auto; height: auto; overflow: hidden;">
+        <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
+        <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
+        <c:choose>
+          <c:when test="${isAdmin == 'true'}">
+            <a href="#" class="deleteTopic" topicId="${allTopics[row.index].TOPICID}" currentTopicId="param.topicId"></a>
+          </c:when>
+        </c:choose>
+      </div>
+      <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | 0 Replies</div>
+  </div>
+  <div style="height: 1px; background-color: #D0D0D0;"></div>
+  </tr>
+  </c:forEach>
 <form action="./postServlet" method="POST">
   <table>
     <tr>
@@ -35,6 +35,7 @@
       <!-- TODO: Get user from session -->
       <td><input type="hidden" name="USERID" value="1"/></td>
       <td><input type="hidden" name="CATEGORYID" value="1"/></td>
+      <td><input type="hidden" name="currentCategory" value="${currentCategory}"/></td>
       <td><input type="submit" name="action" value="addTopic"/></td>
     </tr>
   </table>

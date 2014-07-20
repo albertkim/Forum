@@ -1,0 +1,26 @@
+.bigCategory{
+  width: 550px;
+  height: 350px;
+  background-color: #F0F0F0;
+  margin: 5px;
+  background-repeat:no-repeat;
+  background-size: 550px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.bigCategoryLabel{
+  width: 550px;
+  height: 50px;
+  background-color: black;
+  opacity: 0.5;
+  bottom: 0px;
+  z-index: 2;
+}
+
+.labelText{
+  left: 10px;
+  font-size: 2em;
+  color: white;
+  z-index: 3;
+}

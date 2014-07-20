@@ -17,6 +17,8 @@ public interface TopicDaoLocal {
     
     List<Topic> getAllTopics();
     
+    List<Topic> getAllTopicsByCategory(int categoryId);
+    
     boolean topicExists(int topicId);
     
 }
