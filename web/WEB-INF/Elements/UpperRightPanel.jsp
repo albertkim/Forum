@@ -22,7 +22,6 @@
         </table>
         <input  style="float: right;" type="submit" name="action" value="login"/>
         <!-- Functionality for this set through Javascript -->
-        
         <button type="button" class="registerButton" style="float: left">Register</button>
       </form>
     </div>

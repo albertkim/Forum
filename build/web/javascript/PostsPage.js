@@ -10,6 +10,7 @@ PostsPage = (function() {
     initCurrentCategoryHandlers();
     initCategoryHandlers();
     initTopicHandlers();
+    initAddTopicHandlers();
     initPostHandlers();
     initRegisterHandlers();
     initDeleteTopicHandlers();
@@ -47,6 +48,11 @@ PostsPage = (function() {
       var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).find(".categoryWrapper").html().toString();
       location.href = (url + parameters);
     });
+  };
+  
+  var initAddTopicHandlers = function() {
+    // Bring up the 'Add Topic' popup
+    
   };
 
   var initPostHandlers = function() {

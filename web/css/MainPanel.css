@@ -37,7 +37,8 @@
   min-height: 55px;
   padding: 2px;
   margin: 5px;
-  float: left
+  float: left;
+  word-wrap: break-word;
 }
 
 .detailsWrapper{

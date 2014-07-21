@@ -29,19 +29,13 @@
           </div>
           <div style="height: 5px;"></div>
         </c:forEach>
-        <br>
-        <form action="./postServlet" method="POST">
-          <table>
-            <tr>
-              <td>Reply:</td>
-              <td><input type="text" name="CONTENT" value="${post.CONTENT}"/></td>
-              <td><input type="hidden" name="POSTID" value="0"/></td>
-              <td><input type="hidden" name="USERID" value="1"/></td>
-              <td><input type="submit" name="action" value="addPost"/></td>
-            </tr>
-          </table>
-
-        </form>
+        <div class="button addPostButton">Add Post</div>
+        <script type="text/javascript">
+          AddPost.init({
+            currentCategory: "${currentCategory}",
+            currentTopic: "${currentTopic}"
+          });
+        </script>
       </div>
     </div>
   </c:when>

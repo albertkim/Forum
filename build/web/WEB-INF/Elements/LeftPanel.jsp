@@ -27,17 +27,18 @@
   <div style="height: 1px; background-color: #D0D0D0;"></div>
   </tr>
   </c:forEach>
-<form action="./postServlet" method="POST">
-  <table>
-    <tr>
-      <td>New Topic:</td>
-      <td><input type="text" name="CONTENT" value="${topic.CONTENT}"/></td>
-      <!-- TODO: Get user from session -->
-      <td><input type="hidden" name="USERID" value="1"/></td>
-      <td><input type="hidden" name="CATEGORYID" value="1"/></td>
-      <td><input type="hidden" name="currentCategory" value="${currentCategory}"/></td>
-      <td><input type="submit" name="action" value="addTopic"/></td>
-    </tr>
-  </table>
-</form>
+  <form action="./postServlet" method="POST">
+    <table>
+      <tr>
+        <td>New Topic:</td>
+        <td><input type="text" name="CONTENT" value="${topic.CONTENT}"/></td>
+        <!-- TODO: Get user from session -->
+        <td><input type="hidden" name="USERID" value="1"/></td>
+        <td><input type="hidden" name="CATEGORYID" value="1"/></td>
+        <td><input type="hidden" name="currentCategory" value="${currentCategory}"/></td>
+        <td><input type="submit" name="action" value="addTopic"/></td>
+      </tr>
+    </table>
+  </form>
+  <div class="button addTopic">Add Topic</div>
 </div>

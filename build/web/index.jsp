@@ -13,13 +13,15 @@
     <script type="text/javascript" src="javascript/PostsPage.js"></script>
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
     <script type="text/javascript" src="javascript/Login.js"></script>
+    <script type="text/javascript" src="javascript/AddPost.js"></script>
     <script type="text/javascript" src="javascript/utilities.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
   </head>
 
   <body>
-    <%@ include file="WEB-INF/Elements/register.jsp"%>
+    <%@ include file="WEB-INF/Popups/Register.jsp"%>
+    <%@ include file="WEB-INF/Popups/AddPost.jspf"%>
     <c:set var="currentCategory" value="${param.category}"/>
     <c:set var="currentTopic" value="${param.topic}"/>
 

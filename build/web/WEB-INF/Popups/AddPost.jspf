@@ -1,0 +1,25 @@
+<div class="add-post-wrapper" hidden>
+  <div style="float: left"><h4>Reply to thread</h4></div>
+  <div class="popupCloseButton" style="float: right">Close</div>
+  <form action="./postServlet" method="POST">         
+    <table>
+      <tr>
+        <td>Body</td>
+      </tr>
+      <tr>
+        <td><textarea class="add-post-body" name="CONTENT"></textarea></td>
+      </tr>
+    </table>
+    <c:choose>
+      <c:when test="${not empty currentUser}">
+        <td><input type="hidden" name="POSTID" value="0"/></td>
+        <td><input type="hidden" name="USERID" value="${currentUser.USERID}"/></td>
+        <input style="float: right" type="submit" name="action" value="addPost"></input>
+      </c:when>
+      <c:otherwise>
+        <button type="button" class="registerButton" style="float: right">Register</button>
+        <div style="float: right">Register to reply to threads</div>
+      </c:otherwise>
+    </c:choose>
+  </form>
+</div>
