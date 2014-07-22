@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/MainPanel.css">
     <link rel="stylesheet" type="text/css" href="css/MainPanelHome.css">
     <link rel="stylesheet" type="text/css" href="css/TopPanel.css">
+    <link rel="stylesheet" type="text/css" href="css/Popup.css">
     <script type="text/javascript" src="javascript/PostsPage.js"></script>
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
     <script type="text/javascript" src="javascript/Login.js"></script>
@@ -22,6 +23,7 @@
   <body>
     <%@ include file="WEB-INF/Popups/Register.jsp"%>
     <%@ include file="WEB-INF/Popups/AddPost.jspf"%>
+    <%@ include file="WEB-INF/Popups/Reply.jspf"%>
     <c:set var="currentCategory" value="${param.category}"/>
     <c:set var="currentTopic" value="${param.topic}"/>
 
@@ -65,10 +67,47 @@
   </body>
 
   <script type="text/javascript">
+    
     PostsPage.init({
       currentCategory: "${currentCategory}",
       currentTopic: "${currentTopic}"
     });
+    
+    // Bring up the 'Add Posts' popup
+    $(".addPostButton").on("click", function() {
+      console.log("clicked");
+      $(".reply-wrapper").hide();
+      $(".add-post-wrapper").show();
+    });
+
+    // Popup close button should close popup
+    $(".popupCloseButton").on("click", function() {
+      $(".add-post-wrapper").hide();
+    });
+
+    // Bring up the 'Reply' popup
+    $(".replyButton").on("click", function() {
+      console.log("clicked");
+      $(".add-post-wrapper").hide();
+      $(".reply-wrapper").show();
+    });
+
+    $(".submitReply").on("click", function() {
+      AddPost.init({
+        currentUserId: "${currentUser.USERID}",
+        currentCategory: "${currentCategory}",
+        currentTopic: "${currentTopic}",
+        currentPost: $(".postElement.selected").attr("postId"),
+        content: $(".reply-body").val()
+      });
+      AddPost.submit();
+    });
+
+    // Popup close button should close popup
+    $(".popupCloseButton").on("click", function() {
+      $(".reply-wrapper").hide();
+    });
+    
   </script>
 
 </html>

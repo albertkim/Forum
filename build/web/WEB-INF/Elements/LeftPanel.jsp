@@ -2,7 +2,7 @@
 <!-- Topic table -->
 <div id="topicDiv" class="backgroundbox" style="float: left; height: auto; overflow: hidden;">
   <h4>TOPICS</h4>
-  <div style="height: 1px; background-color: #D0D0D0;"></div>
+  <div style="height: 1px; background-color: black;"></div>
   <c:forEach items="${allTopics}" varStatus="row">
     <tr>
     <c:choose>
@@ -24,7 +24,7 @@
       </div>
       <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | 0 Replies</div>
   </div>
-  <div style="height: 1px; background-color: #D0D0D0;"></div>
+  <div style="height: 1px; background-color: black;"></div>
   </tr>
   </c:forEach>
   <form action="./postServlet" method="POST">

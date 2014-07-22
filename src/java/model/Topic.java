@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
@@ -26,7 +27,14 @@ public class Topic implements Serializable {
   @Column
   private java.sql.Date DATECREATED;
   @Column
+  private java.sql.Timestamp TIMECREATED;
+  @Column
   private java.sql.Date DATEUPDATED;
+  @Column
+  private java.sql.Timestamp TIMEUPDATED;
+  
+  @Transient
+  private int REPLIES;
 
   public Topic() {
 
@@ -38,7 +46,9 @@ public class Topic implements Serializable {
     this.CONTENT = content;
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
+    this.TIMECREATED = new java.sql.Timestamp(utilDate.getTime());
     this.DATEUPDATED = this.DATECREATED;
+    this.TIMEUPDATED = new java.sql.Timestamp(utilDate.getTime());
   }
 
   public int getTOPICID() {
@@ -89,6 +99,22 @@ public class Topic implements Serializable {
   public void setDATEUPDATED() {
     Date utilDate = new Date();
     this.DATEUPDATED = new java.sql.Date(utilDate.getTime());
+  }
+  
+  public java.sql.Timestamp getTIMECREATED(){
+    return this.TIMECREATED;
+  }
+  
+  public java.sql.Timestamp getTIMEUPDATED(){
+    return this.TIMEUPDATED;
+  }
+
+  public int getREPLIES() {
+    return REPLIES;
+  }
+
+  public void setREPLIES(int REPLIES) {
+    this.REPLIES = REPLIES;
   }
 
 }

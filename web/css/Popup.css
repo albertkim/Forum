@@ -7,6 +7,8 @@
   z-index: 10;
 }
 
+/* Register popup */
+
 .register-popup-wrapper{
   position: fixed;
   width: 500px;
@@ -20,6 +22,8 @@
   padding: 10px;
   z-index: 11;
 }
+
+/* Add Post popup */
 
 .add-post-wrapper{
   position: fixed;
@@ -47,6 +51,40 @@
 }
 
 .add-post-body{
+  width: 400px;
+  height: 300px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Reply popup */
+
+.reply-wrapper{
+  position: fixed;
+  width: auto;
+  height: auto;
+  bottom: 10px;
+  right: 20px;
+  margin-top: -300px;
+  margin-left: -250px;
+  background-color: white;
+  border-radius: 5px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #D0D0D0;
+  opacity: 1;
+  padding: 10px;
+  z-index: 9;
+}
+
+.reply-title{
+  width: 400px;
+  height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.reply-body{
   width: 400px;
   height: 300px;
   font-family: inherit;

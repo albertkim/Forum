@@ -10,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
-@NamedQueries({
-  @NamedQuery(name = "Post.getAll", query = "SELECT e FROM Post e")})
+@NamedQueries({@NamedQuery(name = "Post.getAll", query = "SELECT e FROM Post e")})
 public class Post implements Serializable {
 
   @Id
@@ -31,6 +31,15 @@ public class Post implements Serializable {
   private int TOPICID;
   @Column
   private java.sql.Date DATECREATED;
+  @Column
+  private java.sql.Timestamp TIMECREATED;
+  
+  @Transient
+  private String USERNAME;
+  @Transient
+  private String PARENTPOST;
+  @Transient
+  private int REPLIES;
 
   public Post() {
 
@@ -43,6 +52,8 @@ public class Post implements Serializable {
     this.TOPICID = topicId;
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
+    Date date = new Date();
+    this.TIMECREATED = new java.sql.Timestamp(date.getTime());
   }
 
   public int getPOSTID() {
@@ -83,6 +94,38 @@ public class Post implements Serializable {
 
   public void setTOPICID(int TOPICID) {
     this.TOPICID = TOPICID;
+  }
+  
+  public java.sql.Date getDATECREATED(){
+    return this.DATECREATED;
+  }
+  
+  public java.sql.Timestamp getTIMECREATED(){
+    return this.TIMECREATED;
+  }
+
+  public String getUSERNAME() {
+    return USERNAME;
+  }
+
+  public void setUSERNAME(String USERNAME) {
+    this.USERNAME = USERNAME;
+  }
+
+  public String getPARENTPOST() {
+    return PARENTPOST;
+  }
+
+  public void setPARENTPOST(String PARENTPOST) {
+    this.PARENTPOST = PARENTPOST;
+  }
+
+  public int getREPLIES() {
+    return REPLIES;
+  }
+
+  public void setREPLIES(int REPLIES) {
+    this.REPLIES = REPLIES;
   }
 
 }

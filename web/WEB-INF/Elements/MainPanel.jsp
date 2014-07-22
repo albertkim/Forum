@@ -4,6 +4,7 @@
       <div id="postDiv" style="float: left;">
         <c:forEach items="${allPosts}" var="post">
           <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
+            ${post.USERNAME}
             <div style="width: auto; height: auto; overflow: hidden;">
               <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
               <div class="contentWrapper">${post.CONTENT}</div>
@@ -14,28 +15,17 @@
               </c:choose>
             </div>
             <div class="detailsWrapper" hidden>
-              <form class="responseForm" action="./postServlet" method="POST">
-                <table>
-                  <tr>
-                    <td>Reply:</td>
-                    <td><input type="text" name="CONTENT" value=""/></td>
-                    <td><input type="hidden" name="POSTID" value="${post.POSTID}"/></td>
-                    <td><input type="hidden" name="USERID" value="1"/></td>
-                    <td><input type="submit" name="action" value="addPost"/></td>
-                  </tr>
-                </table>
-              </form>
+              <div class="postData" style="width: auto;">
+                <div style="float: right">${post.TIMECREATED} | ${post.REPLIES} Replies</div>
+              </div>
+              <div style="height: 20px; width: auto;">
+                <div class="button replyButton" style="float: right">Reply</div>
+              </div>
             </div>
           </div>
           <div style="height: 5px;"></div>
         </c:forEach>
         <div class="button addPostButton">Add Post</div>
-        <script type="text/javascript">
-          AddPost.init({
-            currentCategory: "${currentCategory}",
-            currentTopic: "${currentTopic}"
-          });
-        </script>
       </div>
     </div>
   </c:when>

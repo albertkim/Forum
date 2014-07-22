@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/css/general.css</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/model/Post.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/dao/ProfileDao.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/dao/PostDaoLocal.java</file>
             <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/index.jsp</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/loginServlet.java</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/adminServlet.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/database/CreateCategoryTable.sql</file>
             <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/mainServlet.java</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/PostAction.java</file>
             <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/dao/PostDao.java</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/TopicAction.java</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/javascript/AdminTools.js</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/postServlet.java</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/javascript/PostsPage.js</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/model/PostDto.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/WEB-INF/Elements/MainPanel.jsp</file>
         </group>
     </open-files>
 </project-private>

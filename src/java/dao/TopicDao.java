@@ -56,5 +56,10 @@ public class TopicDao implements TopicDaoLocal {
     Topic topic = em.find(Topic.class, topicId);
     return topic != null;
   }
+  
+  public Topic setTransientFields(Topic topic){
+    
+    return topic;
+  }
 
 }

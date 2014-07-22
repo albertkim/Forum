@@ -1,6 +1,4 @@
 <!-- Register popup -->
-<link rel="stylesheet" type="text/css" href="css/popup.css">
-
 <div class="popup-background" hidden></div>
 <div class="register-popup-wrapper" hidden>
   <div class="popupCloseButton" style="float: right">Close</div>

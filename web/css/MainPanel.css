@@ -43,11 +43,18 @@
 
 .detailsWrapper{
   width: 1000px;
+  height: 55px;
   bottom: 0px;
 }
 
+.postData{
+  height: 20px;
+  font-size: 0.8em;
+}
+
 .responseForm{
-  
+  height: 20px;
+  float: right;
 }
 
 .deletePost{

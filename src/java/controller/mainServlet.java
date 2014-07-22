@@ -48,16 +48,17 @@ public class mainServlet extends HttpServlet {
       String topicIdString = request.getParameter("topicId");
       if (topicIdString != null) {
         int topicId = Integer.parseInt(topicIdString);
-        // TODO: Return to home page if topic does not exist
+        // Return to home page if topic does not exist
+        // TODO: Deal with returning to home page when the url is invalid
         if(!topicDao.topicExists(topicId)){
-          request.getRequestDispatcher("index.jsp").forward(request, response);
+          response.sendRedirect("mainServlet");
           return;
         }
         request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
         session.setAttribute("topicId", topicIdString);
-      } 
+      }
     } else {
-        session.setAttribute("message", "No messages");
+      session.setAttribute("message", "No messages");
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);
