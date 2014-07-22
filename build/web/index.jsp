@@ -72,25 +72,6 @@
       currentCategory: "${currentCategory}",
       currentTopic: "${currentTopic}"
     });
-    
-    // Bring up the 'Add Posts' popup
-    $(".addPostButton").on("click", function() {
-      console.log("clicked");
-      $(".reply-wrapper").hide();
-      $(".add-post-wrapper").show();
-    });
-
-    // Popup close button should close popup
-    $(".popupCloseButton").on("click", function() {
-      $(".add-post-wrapper").hide();
-    });
-
-    // Bring up the 'Reply' popup
-    $(".replyButton").on("click", function() {
-      console.log("clicked");
-      $(".add-post-wrapper").hide();
-      $(".reply-wrapper").show();
-    });
 
     $(".submitReply").on("click", function() {
       AddPost.init({

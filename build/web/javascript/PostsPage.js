@@ -15,6 +15,7 @@ PostsPage = (function() {
     initRegisterHandlers();
     initDeleteTopicHandlers();
     initDeletePostHandlers();
+    initAddPostHandlers();
   };
 
   var initTitleHandlers = function() {
@@ -126,6 +127,27 @@ PostsPage = (function() {
           location.reload();
         }
       });
+    });
+  };
+  
+  var initAddPostHandlers = function(){
+    // Bring up the 'Add Posts' popup
+    $(".addPostButton").on("click", function() {
+      console.log("clicked");
+      $(".reply-wrapper").hide();
+      $(".add-post-wrapper").show();
+    });
+
+    // Popup close button should close popup
+    $(".popupCloseButton").on("click", function() {
+      $(".add-post-wrapper").hide();
+    });
+
+    // Bring up the 'Reply' popup
+    $(".replyButton").on("click", function() {
+      console.log("clicked");
+      $(".add-post-wrapper").hide();
+      $(".reply-wrapper").show();
     });
   };
 

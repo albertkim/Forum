@@ -9,7 +9,7 @@ AddPost = (function() {
   var init = function(settings) {
     $.extend(config, settings);
   };
-  
+
   var submit = function() {
     $.ajax({
       url: "postServlet",
