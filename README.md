@@ -1,7 +1,7 @@
 Forum
 =====
 
-Basic forum. My goal here is to learn how the components of a web project come together. Intentionally a little messy with patchwork features as I learn and integrate new things.
+Forum made with Java EE. Goal is to make a forum with modular, customized views for each category to suit different categories and communities.
 
 To Do:
 
