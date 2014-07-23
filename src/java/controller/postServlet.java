@@ -29,7 +29,12 @@ public class postServlet extends HttpServlet {
   private PostDaoLocal postDao;
 
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    
+    // Expected request parameters
+    // USERID
+    // POSTID
+    // CONTENT
+    
     HttpSession session = request.getSession(true);
     String action = request.getParameter("action");
     session.setAttribute("message", "No messages");
@@ -57,6 +62,11 @@ public class postServlet extends HttpServlet {
         request.setAttribute("post", post);
       }
       
+      // Expected request parameters
+      // USERID
+      // currentCategory
+      // CONTENT
+      
       else if ("addTopic".equalsIgnoreCase(action)) {
         String userIdString = request.getParameter("USERID");
         int userId = Integer.parseInt(userIdString);
@@ -67,6 +77,11 @@ public class postServlet extends HttpServlet {
         Topic newTopic = new Topic(userId, categoryId, content);
         topicDao.addTopic(newTopic);
       }
+      
+      // TODO: MAKE REGISTRATION PROCESS MORE SECURE!
+      // Expected request parameters
+      // USERNAME
+      // PASSWORD
       
       else if ("register".equalsIgnoreCase(action)) {
         String username = request.getParameter("USERNAME");

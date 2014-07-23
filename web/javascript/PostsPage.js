@@ -85,8 +85,8 @@ PostsPage = (function() {
     });
   };
   
-  var initDeleteTopicHandlers = function(event) {
-    $(".deleteTopic").on("click", function(){
+  var initDeleteTopicHandlers = function() {
+    $(".deleteTopic").on("click", function(event){
       var topicId = $(this).attr("topicId");
       var currentTopicId = $(this).attr("currentTopicId");
       $.ajax({
@@ -108,8 +108,8 @@ PostsPage = (function() {
     });
   };
   
-  var initDeletePostHandlers = function(event) {
-    $(".deletePost").on("click", function(){
+  var initDeletePostHandlers = function() {
+    $(".deletePost").on("click", function(event){
       var postId = $(this).attr("postId");
       var topicId = $(this).attr("topicId");
       $.ajax({
@@ -141,6 +141,7 @@ PostsPage = (function() {
     // Popup close button should close popup
     $(".popupCloseButton").on("click", function() {
       $(".add-post-wrapper").hide();
+      $(".reply-wrapper").hide();
     });
 
     // Bring up the 'Reply' popup

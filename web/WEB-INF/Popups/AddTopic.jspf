@@ -1,0 +1,29 @@
+<div class="add-topic-wrapper" hidden>
+  <div>Create new thread</div>
+  <div class="popupCloseButton" style="float: right">Close</div>     
+  <table>
+    <tr>
+      Thread title
+    </tr>
+    <tr>
+      <td><textarea class="add-reply-title"></textarea></td>
+    </tr>
+    <tr>
+      <td>Body</td>
+    </tr>
+    <tr>
+      <td><textarea class="add-topic-body"></textarea></td>
+    </tr>
+  </table>
+  <c:choose>
+    <c:when test="${not empty currentUser}">
+      <td><input type="hidden" name="POSTID" value="0"/></td>
+      <td><input type="hidden" name="USERID" value="${currentUser.USERID}"/></td>
+      <div class="button submitTopic" style="float: right">Submit</div>
+    </c:when>
+    <c:otherwise>
+      <button type="button" class="registerButton" style="float: right">Register</button>
+      <div style="float: right">Register to reply to threads</div>
+    </c:otherwise>
+  </c:choose>
+</div>

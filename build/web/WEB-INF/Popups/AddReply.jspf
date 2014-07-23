@@ -1,0 +1,24 @@
+<div class="reply-wrapper" hidden>
+  <div style="float: left"><h4>Reply to post</h4></div>
+  <div class="popupCloseButton" style="float: right">Close</div>
+  <form action="./postServlet" method="POST">         
+    <table>
+      <tr>
+        <td>Body</td>
+      </tr>
+      <tr>
+        <td><textarea class="reply-body" name="CONTENT"></textarea></td>
+      </tr>
+    </table>
+    <c:choose>
+      <c:when test="${not empty currentUser}">
+        <td><input type="hidden" name="POSTID" value="0"/></td>
+        <td><input type="hidden" name="USERID" value="${currentUser.USERID}"/></td>
+        <div class="button submitReply" style="float: right">Submit</div>
+      </c:when>
+      <c:otherwise>
+        <div style="float: right">Register to reply to threads</div>
+      </c:otherwise>
+    </c:choose>
+  </form>
+</div>

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
     <script type="text/javascript" src="javascript/Login.js"></script>
     <script type="text/javascript" src="javascript/AddPost.js"></script>
+    <script type="text/javascript" src="javascript/AddTopic.js"></script>
     <script type="text/javascript" src="javascript/utilities.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
@@ -23,7 +24,8 @@
   <body>
     <%@ include file="WEB-INF/Popups/Register.jsp"%>
     <%@ include file="WEB-INF/Popups/AddPost.jspf"%>
-    <%@ include file="WEB-INF/Popups/Reply.jspf"%>
+    <%@ include file="WEB-INF/Popups/AddReply.jspf"%>
+    <%@ include file="WEB-INF/Popups/AddTopic.jspf"%>
     <c:set var="currentCategory" value="${param.category}"/>
     <c:set var="currentTopic" value="${param.topic}"/>
 
@@ -55,7 +57,7 @@
     <div class="mainpanel">
       <c:choose>
         <c:when test="${not empty currentCategory}">
-          <%@ include file="WEB-INF/Elements/MainPanel.jsp"%>
+          <%@ include file="WEB-INF/Elements/MainPanel.jspf"%>
         </c:when>
         <c:otherwise>
           <div>
@@ -82,6 +84,11 @@
         content: $(".reply-body").val()
       });
       AddPost.submit();
+    });
+    
+    AddTopic.init({
+      currentUserId: "${currentUser.USERID}",
+      currentCategory: "${currentCategory}"
     });
 
     // Popup close button should close popup
