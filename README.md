@@ -10,11 +10,13 @@ To Do:
 * (done) --------------- Fix up Topic data structure
 * (done) --------------- Add working user register/login system
 * (done) --------------- Implement Categories (do this ASAP before things get too complicated)
-* (done) --------------- Show topic/post statistics (use @Transient, didn't know about this magical annotation b4)
+* (done) --------------- Show topic/post statistics (use @Transient entity bean annotation)
 
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)
 
+* ------------------------- Improve user login/registration security (sending passwords over http, etc)
+* ------------------------- Add pagination for when the number of topics/posts get too large
 * ------------------------- Add rating system per post, store in db
 * ------------------------- Sort posts chronologically, add option for sorting by rating
 * (delay) --------------- Use ajax to load tables instead of refreshing whole page
