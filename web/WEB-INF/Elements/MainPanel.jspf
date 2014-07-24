@@ -1,11 +1,15 @@
 <c:choose>
   <c:when test="${not empty param.topicId}">
-    <div id="postDivWrapper" class="backgroundbox" style="width: 1050px; height: auto; overflow: hidden;">
+    <div id="postDivWrapper" class="backgroundbox" style="overflow: hidden;">
       <div id="postDiv" style="float: left;">
+        
+        <!-- For each post -->
         <c:forEach items="${allPosts}" var="post">
+          
+          <!-- Start of post element -->
           <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
             ${post.USERNAME}
-            <div style="width: auto; height: auto; overflow: hidden;">
+            <div style="width: 1100px; height: auto; overflow: hidden;">
               
               <!-- User section -->
               <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
@@ -27,6 +31,21 @@
                   <a href="#" class="deletePost" postId="${post.POSTID}" topicId="${param.topicId}"></a>
                 </c:when>
               </c:choose>
+                
+              <!-- Rating elements -->
+              <div class="votingWrapper">
+                <div class="wrapper" style="height: 25px">
+                  <div class="upvoteElement"></div>
+                  <div style="width: 10px; height: 25px; float: left"></div>
+                  <div class="upvotingNumber">${post.UPVOTES}</div>
+                </div>
+                <div class="wrapper" style="height: 25px">
+                  <div class="downvoteElement"></div>
+                  <div style="width: 10px; height: 25px; float: left"></div>
+                  <div class="downvotingNumber">${post.DOWNVOTES}</div>
+                </div>
+              </div>
+                
             </div>
                 
             <!-- Details section -->    
@@ -38,11 +57,20 @@
                 <div class="button replyButton" style="float: right">Reply</div>
               </div>
             </div>
+              
+          <!-- End of post request -->
           </div>
+          
           <div style="height: 5px;"></div>
         </c:forEach>
-        <div class="button addPostButton">Add Post</div>
+        
       </div>
+              
     </div>
   </c:when>
 </c:choose>
+              
+<div class="button addPostButton">Add Post</div>
+              
+<!-- Padding for the bottom of the page -->
+<div style="height: 100px"></div>

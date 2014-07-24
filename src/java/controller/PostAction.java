@@ -25,8 +25,23 @@ public class PostAction extends HttpServlet {
     // Check that the current user is an admin before proceeding
     HttpSession session = request.getSession(true);
     
+    String action = request.getParameter("action").toString();
+    
+    // upvote
+    // Expected request parameters
+    // postId
+    // userId
+    if("upvote".equals(action)){
+      
+    }
+    
     if(session.getAttribute("isAdmin").equals("true")){
-      String action = request.getParameter("action").toString();
+      
+      // deletePost
+      // Expected request parameters
+      // postId
+      // topicId
+      
       if("deletePost".equals(action)){
         String postId = request.getParameter("postId").toString();
         // TODO: Decide what to do with reply posts

@@ -33,11 +33,19 @@ public class Post implements Serializable {
   private java.sql.Date DATECREATED;
   @Column
   private java.sql.Timestamp TIMECREATED;
+  @Column
+  private int UPVOTES;
+  @Column
+  private int DOWNVOTES;
+  @Column
+  private String CUSTOM;
   
   @Transient
   private String USERNAME;
   @Transient
   private String PARENTPOST;
+  @Transient
+  private String PARENTUSERNAME;
   @Transient
   private int REPLIES;
 
@@ -126,6 +134,38 @@ public class Post implements Serializable {
 
   public void setREPLIES(int REPLIES) {
     this.REPLIES = REPLIES;
+  }
+
+  public int getUPVOTES() {
+    return UPVOTES;
+  }
+
+  public void setUPVOTES(int UPVOTES) {
+    this.UPVOTES = UPVOTES;
+  }
+
+  public int getDOWNVOTES() {
+    return DOWNVOTES;
+  }
+
+  public void setDOWNVOTES(int DOWNVOTES) {
+    this.DOWNVOTES = DOWNVOTES;
+  }
+
+  public String getCUSTOM() {
+    return CUSTOM;
+  }
+
+  public void setCUSTOM(String CUSTOM) {
+    this.CUSTOM = CUSTOM;
+  }
+
+  public String getPARENTUSERNAME() {
+    return PARENTUSERNAME;
+  }
+
+  public void setPARENTUSERNAME(String PARENTUSERNAME) {
+    this.PARENTUSERNAME = PARENTUSERNAME;
   }
 
 }

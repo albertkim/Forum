@@ -39,7 +39,12 @@ public class PostDao implements PostDaoLocal {
   @Override
   public List<Post> getAllPosts() {
     Query queryUser = em.createQuery("SELECT p FROM Post p");
-    return queryUser.getResultList();
+    List<Post> postList = queryUser.getResultList();
+    List<Post> returnPostList = queryUser.getResultList();
+    for(Post p: postList){
+      returnPostList.add(setTransientFields(p));
+    }
+    return returnPostList;
   }
 
   @Override
@@ -65,7 +70,9 @@ public class PostDao implements PostDaoLocal {
     if(parentId != 0){
       Post parentPost = getPost(parentId);
       post.setPARENTPOST(parentPost.getCONTENT());
-    }
+      // Set parent username
+      post.setPARENTUSERNAME(parentPost.getUSERNAME());
+    }    
     
     // Set reply count
     int postId = post.getPOSTID();

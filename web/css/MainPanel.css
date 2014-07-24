@@ -3,21 +3,22 @@
   overflow: auto;
   left: 370px;
   top: 120px;
-  width: calc(100% - 370px);
+  width: auto;
   z-index: 8;
 }
 
 .postElement{
-  width: 1050px;
+  width: 1100px;
   height: auto;
   border-radius: 5px;
   border-width: thin;
   border-style: solid;
   border-color: #D0D0D0;
+  float: left;
 }
 
 .replyPostElement{
-  width: 950px;
+  width: 900px;
   min-height: 50px;
   border-radius: 5px;
   border-width: thin;
@@ -45,7 +46,7 @@
 }
 
 .contentWrapper{
-  width: 920px;
+  width: 900px;
   min-height: 55px;
   padding: 2px;
   margin: 5px;
@@ -54,9 +55,10 @@
 }
 
 .detailsWrapper{
-  width: 1000px;
+  width: auto;
   height: 55px;
   bottom: 0px;
+  padding: 10px;
 }
 
 .postData{
@@ -67,6 +69,38 @@
 .responseForm{
   height: 20px;
   float: right;
+}
+
+/* Voting elements */
+
+.votingWrapper{
+  width: 80px;
+  height: 50px;
+  float: right;
+}
+
+.upvoteElement{
+  width: 5px;
+  height: 25px;
+  background-color: #5DE820;
+  float: left;
+}
+
+.downvoteElement{
+  width: 5px;
+  height: 25px;
+  background-color: #B50D00;
+  float: left;
+}
+
+.upvotingNumber{
+  float: left;
+  color: #5DE820;
+}
+
+.downvotingNumber{
+  float: left;
+  color: #B50D00;
 }
 
 /* Delete button */

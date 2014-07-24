@@ -28,14 +28,16 @@ AddTopic = (function() {
 
   var submit = function() {
     // Get textarea content
-    var textArea = $(".add-topic-body").val();
+    var title = $(".add-topic-body").val();
+    var content = $(".add-topic-body").val();
     $.ajax({
       url: "postServlet",
       data: {
         action: "addTopic",
         USERID: config.currentUserId,
         currentCategory: config.currentCategory,
-        CONTENT: textArea
+        CONTENT: content,
+        TITLE: title
       },
       success: function(){
         location.reload();

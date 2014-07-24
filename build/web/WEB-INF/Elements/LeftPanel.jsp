@@ -27,5 +27,6 @@
   <div style="height: 1px; background-color: black;"></div>
   </tr>
   </c:forEach>
-  <div class="button addTopicButton" style="float: right;">Add Topic</div>
+  <div style="height: 10px"></div>
+  <div class="button addTopicButton" style="float: left;">Add Topic</div>
 </div>

@@ -30,16 +30,19 @@ public class postServlet extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-    // Expected request parameters
-    // USERID
-    // POSTID
-    // CONTENT
+
     
     HttpSession session = request.getSession(true);
     String action = request.getParameter("action");
     session.setAttribute("message", "No messages");
 
     if (action != null && !"".equals(action)) {
+      
+      // addPost
+      // Expected request parameters
+      // USERID
+      // POSTID
+      // CONTENT
 
       if ("addPost".equalsIgnoreCase(action)) {
         String userIdString = request.getParameter("USERID");
@@ -62,22 +65,29 @@ public class postServlet extends HttpServlet {
         request.setAttribute("post", post);
       }
       
+      // addTopic
       // Expected request parameters
       // USERID
       // currentCategory
       // CONTENT
+      // TITLE
       
       else if ("addTopic".equalsIgnoreCase(action)) {
+        // Add main topic entry
         String userIdString = request.getParameter("USERID");
         int userId = Integer.parseInt(userIdString);
         String categoryIdString = request.getParameter("currentCategory");
         System.out.println("categoryIdString: " + categoryIdString);
-        String content = request.getParameter("CONTENT");
+        String content = request.getParameter("TITLE");
         int categoryId = categoryDao.getCategoryId(categoryIdString);
         Topic newTopic = new Topic(userId, categoryId, content);
         topicDao.addTopic(newTopic);
+        
+        // Add first post entry, parent POSTID will be 0 by default
+        
       }
       
+      // register
       // TODO: MAKE REGISTRATION PROCESS MORE SECURE!
       // Expected request parameters
       // USERNAME

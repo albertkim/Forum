@@ -6,7 +6,7 @@
       Thread title
     </tr>
     <tr>
-      <td><textarea class="add-reply-title"></textarea></td>
+      <td><textarea class="add-topic-title"></textarea></td>
     </tr>
     <tr>
       <td>Body</td>
