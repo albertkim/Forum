@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -28,7 +29,7 @@ public class TopicDao implements TopicDaoLocal {
   @Override
   public Topic getTopic(int topicId) {
     Topic topic = em.find(Topic.class, topicId);
-    return topic;
+    return setTransientFields(topic);
   }
 
   @Override
@@ -40,7 +41,11 @@ public class TopicDao implements TopicDaoLocal {
   public List<Topic> getAllTopics() {
     Query queryUser = em.createQuery("SELECT e FROM Topic e ORDER BY e.TOPICID");
     List<Topic> topicList = queryUser.getResultList();
-    return topicList;
+    List<Topic> returnList = new ArrayList<>();
+    for(Topic t: topicList){
+      returnList.add(setTransientFields(t));
+    }
+    return returnList;
   }
   
   @Override
@@ -48,7 +53,11 @@ public class TopicDao implements TopicDaoLocal {
     Query queryUser = em.createQuery("SELECT e FROM Topic e WHERE e.CATEGORYID = :categoryId ORDER BY e.TOPICID");
     queryUser.setParameter("categoryId", categoryId);
     List<Topic> topicList = queryUser.getResultList();
-    return topicList;
+    List<Topic> returnList = new ArrayList<>();
+    for(Topic t: topicList){
+      returnList.add(setTransientFields(t));
+    }
+    return returnList;
   }
   
   @Override
@@ -58,6 +67,10 @@ public class TopicDao implements TopicDaoLocal {
   }
   
   public Topic setTransientFields(Topic topic){
+    // Set replies
+    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.TOPICID = " + Integer.toString(topic.getTOPICID()));
+    int replies = queryUser.getResultList().size();
+    topic.setREPLIES(replies);
     
     return topic;
   }

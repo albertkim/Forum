@@ -15,6 +15,7 @@ To Do:
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)
 * (in progress) ------- Add rating system per post (db system required to track who voted for what)
+* (in progress) ------- Documentation for file layout/structure and overall goals
 
 * ------------------------- Improve user login/registration security (sending passwords over http, etc)
 * ------------------------- Add pagination for when the number of topics/posts get too large

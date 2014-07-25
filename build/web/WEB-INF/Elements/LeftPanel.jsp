@@ -22,7 +22,7 @@
           </c:when>
         </c:choose>
       </div>
-      <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | 0 Replies</div>
+      <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | ${allTopics[row.index].REPLIES} Replies</div>
   </div>
   <div style="height: 1px; background-color: black;"></div>
   </tr>
