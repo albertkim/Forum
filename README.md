@@ -17,6 +17,7 @@ To Do:
 * (in progress) ------- Add rating system per post (db system required to track who voted for what)
 * (in progress) ------- Documentation for file layout/structure and overall goals
 
+* ------------------------- Capture click/view statistics per page, store and display in an intuitive report
 * ------------------------- Improve user login/registration security (sending passwords over http, etc)
 * ------------------------- Add pagination for when the number of topics/posts get too large
 * ------------------------- Add rating system per post, store in db
