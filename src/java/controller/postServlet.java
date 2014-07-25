@@ -30,8 +30,6 @@ public class postServlet extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-
-    
     HttpSession session = request.getSession(true);
     String action = request.getParameter("action");
     session.setAttribute("message", "No messages");
@@ -78,12 +76,16 @@ public class postServlet extends HttpServlet {
         int userId = Integer.parseInt(userIdString);
         String categoryIdString = request.getParameter("currentCategory");
         System.out.println("categoryIdString: " + categoryIdString);
-        String content = request.getParameter("TITLE");
+        String title = request.getParameter("TITLE");
         int categoryId = categoryDao.getCategoryId(categoryIdString);
-        Topic newTopic = new Topic(userId, categoryId, content);
+        Topic newTopic = new Topic(userId, categoryId, title);
         topicDao.addTopic(newTopic);
         
         // Add first post entry, parent POSTID will be 0 by default
+        int topicId = newTopic.getTOPICID();
+        String content = request.getParameter("CONTENT");
+        Post newPost = new Post(userId, content, 0, topicId);
+        postDao.addPost(newPost);
         
       }
       

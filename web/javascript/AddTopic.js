@@ -28,7 +28,7 @@ AddTopic = (function() {
 
   var submit = function() {
     // Get textarea content
-    var title = $(".add-topic-body").val();
+    var title = $(".add-topic-title").val();
     var content = $(".add-topic-body").val();
     $.ajax({
       url: "postServlet",
