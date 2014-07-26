@@ -34,12 +34,12 @@
                 
               <!-- Rating elements -->
               <div class="votingWrapper">
-                <div class="wrapper" style="height: 25px">
+                <div class="upvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
                   <div class="upvoteElement"></div>
                   <div style="width: 10px; height: 25px; float: left"></div>
                   <div class="upvotingNumber">${post.UPVOTES}</div>
                 </div>
-                <div class="wrapper" style="height: 25px">
+                <div class="downvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
                   <div class="downvoteElement"></div>
                   <div style="width: 10px; height: 25px; float: left"></div>
                   <div class="downvotingNumber">${post.DOWNVOTES}</div>

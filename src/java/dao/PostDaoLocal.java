@@ -19,4 +19,12 @@ public interface PostDaoLocal {
     
     List<Post> getAllPostsWithTopicId(int topicId);
     
+    void upvotePost(int postId);
+    
+    void removeUpvotePost(int postId);
+    
+    void downvotePost(int postId);
+    
+    void removeDownvotePost(int postId);
+    
 }

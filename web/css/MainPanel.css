@@ -3,7 +3,7 @@
   overflow: auto;
   left: 370px;
   top: 120px;
-  width: auto;
+  width: calc(80% - 380px);
   z-index: 8;
 }
 
@@ -79,11 +79,19 @@
   float: right;
 }
 
+.upvote-wrapper{
+  cursor: pointer;
+}
+
 .upvoteElement{
   width: 5px;
   height: 25px;
   background-color: #5DE820;
   float: left;
+}
+
+.downvote-wrapper{
+  pointer-events: pointer;
 }
 
 .downvoteElement{

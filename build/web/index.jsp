@@ -17,6 +17,7 @@
     <script type="text/javascript" src="javascript/AddPost.js"></script>
     <script type="text/javascript" src="javascript/AddTopic.js"></script>
     <script type="text/javascript" src="javascript/utilities.js"></script>
+    <script type="text/javascript" src="javascript/Rating.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
   </head>
@@ -94,6 +95,10 @@
     // Popup close button should close popup
     $(".popupCloseButton").on("click", function() {
       $(".reply-wrapper").hide();
+    });
+    
+    Rating.init({
+      currentUserId: "${currentUser.USERID}"
     });
     
   </script>

@@ -83,4 +83,34 @@ public class PostDao implements PostDaoLocal {
     return post;
   }
 
+  @Override
+  public void upvotePost(int postId) {
+    // Checking to see if the user has already rated is done higher up in the servlet
+    Post post = em.find(Post.class, postId);
+    post.setUPVOTES(post.getUPVOTES() + 1);
+    em.persist(post);
+  }
+  
+  @Override
+  public void removeUpvotePost(int postId){
+    Post post = em.find(Post.class, postId);
+    post.setUPVOTES(post.getUPVOTES() - 1);
+    em.persist(post);
+  }
+
+  @Override
+  public void downvotePost(int postId) {
+    // Checking to see if the user has already rated is done higher up in the servlet
+    Post post = em.find(Post.class, postId);
+    post.setDOWNVOTES(post.getDOWNVOTES() + 1);
+    em.merge(post);
+  }
+  
+  @Override
+  public void removeDownvotePost(int postId){
+    Post post = em.find(Post.class, postId);
+    post.setDOWNVOTES(post.getDOWNVOTES() - 1);
+    em.merge(post);
+  }
+
 }

@@ -10,11 +10,11 @@ To Do:
 * (done) --------------- Fix up Topic data structure
 * (done) --------------- Add working user register/login system
 * (done) --------------- Implement Categories (do this ASAP before things get too complicated)
-* (done) --------------- Show topic/post statistics (use @Transient entity bean annotation)
+* (done) --------------- Show topic/post statistics (use Transient entity bean annotation)
+* (done) --------------- Add rating system per post (db system required to track who voted for what)
 
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)
-* (in progress) ------- Add rating system per post (db system required to track who voted for what)
 * (in progress) ------- Documentation for file layout/structure and overall goals
 
 * ------------------------- Improve user login/registration security (sending passwords over http, etc)
