@@ -91,7 +91,7 @@
 }
 
 .downvote-wrapper{
-  pointer-events: pointer;
+  cursor: pointer;
 }
 
 .downvoteElement{

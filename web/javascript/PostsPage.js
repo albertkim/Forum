@@ -11,10 +11,8 @@ PostsPage = (function() {
     initCategoryHandlers();
     initTopicHandlers();
     initAddTopicHandlers();
-    initPostHandlers();
     initRegisterHandlers();
     initDeleteTopicHandlers();
-    initDeletePostHandlers();
     initAddPostHandlers();
   };
 
@@ -56,21 +54,6 @@ PostsPage = (function() {
     
   };
 
-  var initPostHandlers = function() {
-    $(".postElement").on("click", function() {
-      // Remove selected class and reply elements from all other posts
-      $(".postElement").not($(this)).removeClass("selected");
-      $(".postElement").not($(this)).find(".detailsWrapper").hide();
-      if ($(this).hasClass("selected")) {
-        // Give some option to remove the selected state of the post
-      } else {
-        // Add selected tag and reply element
-        $(this).addClass("selected");
-        $(this).find(".detailsWrapper").show();
-      }
-    });
-  };
-
   var initRegisterHandlers = function() {
     // Register button should bring up popup
     $(".registerButton").on("click", function() {
@@ -105,28 +88,6 @@ PostsPage = (function() {
         }
       });
       event.stopImmediatePropagation();
-    });
-  };
-  
-  var initDeletePostHandlers = function() {
-    $(".deletePost").on("click", function(event){
-      var postId = $(this).attr("postId");
-      var topicId = $(this).attr("topicId");
-      $.ajax({
-        url: "postAction",
-        data: {
-          action: "deletePost",
-          postId: postId,
-          topicId: topicId
-        },
-        success: function(data){
-          console.log("data: " + data);
-          // New post set gets returned in ajax form
-          // TODO: Implement Backbone.js to display elements properly
-          // For now, just refresh the page
-          location.reload();
-        }
-      });
     });
   };
   

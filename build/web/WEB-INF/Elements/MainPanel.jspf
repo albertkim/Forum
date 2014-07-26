@@ -6,6 +6,15 @@
         <!-- For each post -->
         <c:forEach items="${allPosts}" var="post">
           
+          <c:set var="userId" value="${post.USERID}"/>
+          <c:set var="postId" value="${post.POSTID}"/>
+          <c:set var="topicId" value="${post.TOPICID}"/>
+          <c:set var="content" value="${post.CONTENT}"/>
+          <c:set var="replies" value="${post.REPLIES}"/>
+          <c:set var="upvotes" value="${post.UPVOTES}"/>
+          <c:set var="downvotes" value="${post.DOWNVOTES}"/>
+          <c:set var="timeCreated" value="${post.TIMECREATED}"/>
+          
           <!-- Start of post element -->
           <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
             ${post.USERNAME}
@@ -60,6 +69,20 @@
               
           <!-- End of post request -->
           </div>
+              
+          <script type="text/javascript">
+            MainPanel.addPost({
+              userId: "${userId}",
+              postId: "${postId}",
+              topicId: "${topicId}",
+              content: "${content}",
+              replies: "${replies}",
+              upvotes: "${upvotes}",
+              downvotes: "${downvotes}",
+              timeCreated: "${timeCreated}",
+              isAdmin: "${isAdmin}"
+            });
+          </script>
           
           <div style="height: 5px;"></div>
         </c:forEach>

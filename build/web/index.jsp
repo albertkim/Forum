@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="css/Popup.css">
     <script type="text/javascript" src="javascript/PostsPage.js"></script>
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
+    <script type="text/javascript" src="javascript/Post.js"></script>
+    <script type="text/javascript" src="javascript/MainPanel.js"></script>
     <script type="text/javascript" src="javascript/Login.js"></script>
     <script type="text/javascript" src="javascript/AddPost.js"></script>
     <script type="text/javascript" src="javascript/AddTopic.js"></script>
@@ -27,8 +29,20 @@
     <%@ include file="WEB-INF/Popups/AddPost.jspf"%>
     <%@ include file="WEB-INF/Popups/AddReply.jspf"%>
     <%@ include file="WEB-INF/Popups/AddTopic.jspf"%>
+    
     <c:set var="currentCategory" value="${param.category}"/>
-    <c:set var="currentTopic" value="${param.topic}"/>
+    <c:set var="currentTopicId" value="${param.topicId}"/>
+    
+    <script type="text/javascript">
+      MainPanel.init({
+        currentUser: {
+          userId: "${currentUser.USERID}",
+          username: "${currentUser.USERNAME}"
+        },
+        currentCategory: "${currentCategory}",
+        currentTopicId: "${currentTopicId}"
+      });
+    </script>
 
     <div class="upperleftpanel">
       <%@ include file="WEB-INF/Elements/UpperLeftPanel.jsp"%>
@@ -73,14 +87,14 @@
     
     PostsPage.init({
       currentCategory: "${currentCategory}",
-      currentTopic: "${currentTopic}"
+      currentTopicId: "${currentTopicId}"
     });
 
     $(".submitReply").on("click", function() {
       AddPost.init({
         currentUserId: "${currentUser.USERID}",
         currentCategory: "${currentCategory}",
-        currentTopic: "${currentTopic}",
+        currentTopicId: "${currentTopicId}",
         currentPost: $(".postElement.selected").attr("postId"),
         content: $(".reply-body").val()
       });
