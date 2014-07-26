@@ -13,6 +13,7 @@ To Do:
 * (done) --------------- Show topic/post statistics (use Transient entity bean annotation)
 * (done) --------------- Add rating system per post (db system required to track who voted for what)
 
+* (in progress) ------- Properly organize javascript model instantiations (right now it's a mess)
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)
 * (in progress) ------- Documentation for file layout/structure and overall goals
