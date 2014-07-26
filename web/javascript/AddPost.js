@@ -17,6 +17,7 @@ AddPost = (function() {
         action: "addPost",
         USERID: config.currentUserId,
         POSTID: config.currentPost,
+        topicId: config.currentTopicId,
         CONTENT: config.content
       },
       success: function(){
@@ -29,4 +30,5 @@ AddPost = (function() {
     init: init,
     submit: submit
   };
+  
 })();

@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/MainPanelHome.css">
     <link rel="stylesheet" type="text/css" href="css/TopPanel.css">
     <link rel="stylesheet" type="text/css" href="css/Popup.css">
-    <script type="text/javascript" src="javascript/PostsPage.js"></script>
+    <script type="text/javascript" src="javascript/Handlers.js"></script>
     <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
     <script type="text/javascript" src="javascript/Post.js"></script>
     <script type="text/javascript" src="javascript/MainPanel.js"></script>
@@ -32,17 +32,6 @@
     
     <c:set var="currentCategory" value="${param.category}"/>
     <c:set var="currentTopicId" value="${param.topicId}"/>
-    
-    <script type="text/javascript">
-      MainPanel.init({
-        currentUser: {
-          userId: "${currentUser.USERID}",
-          username: "${currentUser.USERNAME}"
-        },
-        currentCategory: "${currentCategory}",
-        currentTopicId: "${currentTopicId}"
-      });
-    </script>
 
     <div class="upperleftpanel">
       <%@ include file="WEB-INF/Elements/UpperLeftPanel.jsp"%>
@@ -85,7 +74,16 @@
 
   <script type="text/javascript">
     
-    PostsPage.init({
+    MainPanel.init({
+      currentUser: {
+        userId: "${currentUser.USERID}",
+        username: "${currentUser.USERNAME}"
+      },
+      currentCategory: "${currentCategory}",
+      currentTopicId: "${currentTopicId}"
+    });
+    
+    Handlers.init({
       currentCategory: "${currentCategory}",
       currentTopicId: "${currentTopicId}"
     });

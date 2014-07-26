@@ -26,6 +26,7 @@ Rating = (function() {
         }
       });
     });
+    
     $(".downvote-wrapper").on("click", function(){
       var userId = config.currentUserId;
       var postId = $(this).attr("postId");

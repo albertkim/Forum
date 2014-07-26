@@ -1,4 +1,6 @@
-PostsPage = (function() {
+// To be used for click handling on universal elements
+
+Handlers = (function() {
   // config parameters passed in from index.jsp
   // currentCategory
   // currentTopic
@@ -10,12 +12,10 @@ PostsPage = (function() {
     initCurrentCategoryHandlers();
     initCategoryHandlers();
     initTopicHandlers();
-    initAddTopicHandlers();
     initRegisterHandlers();
     initDeleteTopicHandlers();
-    initAddPostHandlers();
   };
-
+  
   var initTitleHandlers = function() {
     $(".title").on("click",  function() {
       var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
@@ -25,6 +25,7 @@ PostsPage = (function() {
   };
   
   var initCurrentCategoryHandlers = function() {
+    // Clicking on the current category (top of page) should go to category home page
     $(".currentCategory").on("click", function() {
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
       var parameters = "?" + "category=" + config.currentCategory; 
@@ -47,11 +48,6 @@ PostsPage = (function() {
       var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).find(".categoryWrapper").html().toString();
       location.href = (url + parameters);
     });
-  };
-  
-  var initAddTopicHandlers = function() {
-    // Bring up the 'Add Topic' popup
-    
   };
 
   var initRegisterHandlers = function() {
@@ -90,30 +86,9 @@ PostsPage = (function() {
       event.stopImmediatePropagation();
     });
   };
-  
-  var initAddPostHandlers = function(){
-    // Bring up the 'Add Posts' popup
-    $(".addPostButton").on("click", function() {
-      console.log("clicked");
-      $(".reply-wrapper").hide();
-      $(".add-post-wrapper").show();
-    });
-
-    // Popup close button should close popup
-    $(".popupCloseButton").on("click", function() {
-      $(".add-post-wrapper").hide();
-      $(".reply-wrapper").hide();
-    });
-
-    // Bring up the 'Reply' popup
-    $(".replyButton").on("click", function() {
-      console.log("clicked");
-      $(".add-post-wrapper").hide();
-      $(".reply-wrapper").show();
-    });
-  };
 
   return {
     init: init
   };
+  
 })();

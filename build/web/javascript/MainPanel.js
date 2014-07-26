@@ -16,6 +16,7 @@ var MainPanel = (function() {
     console.log("MainPanel instantiated");
     $.extend(config, settings);
     // console.log(config);
+    initGeneralHandlers();
   };
   
   // Input:
@@ -27,6 +28,21 @@ var MainPanel = (function() {
     var postObject = new Post();
     postObject.init(postJson);
     postsList.push(postObject);
+  };
+  
+  var initGeneralHandlers = function(){
+    // Bring up the 'Add Posts' popup
+    $(".addPostButton").on("click", function() {
+      console.log("clicked");
+      $(".reply-wrapper").hide();
+      $(".add-post-wrapper").show();
+    });
+
+    // Popup close button should close popup
+    $(".popupCloseButton").on("click", function() {
+      $(".add-post-wrapper").hide();
+      $(".reply-wrapper").hide();
+    });
   };
   
   return {

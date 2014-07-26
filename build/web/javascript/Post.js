@@ -57,6 +57,47 @@ var Post = function() {
       });
       event.stopImmediatePropagation();
     });
+    
+    // Upvote handler
+    $(postElement).find(".upvote-wrapper").on("click", function(){
+      $.ajax({
+        url: "ratingAction",
+        type: "POST",
+        data: {
+          action: "upvote",
+          userId: config.userId,
+          postId: config.postId
+        },
+        success: function(data){
+          // console.log("data: " + data);
+          location.reload();
+        }
+      });
+    });
+    
+    // Downvote handler
+    $(postElement).find(".downvote-wrapper").on("click", function(){
+      $.ajax({
+        url: "ratingAction",
+        type: "POST",
+        data: {
+          action: "downvote",
+          userId: config.userId,
+          postId: config.postId
+        },
+        success: function(data){
+          // console.log("data: " + data);
+          location.reload();
+        }
+      });
+    });
+    
+    // Bring up the 'Reply' popup
+    $(postElement).find(".replyButton").on("click", function() {
+      $(".add-post-wrapper").hide();
+      $(".reply-wrapper").show();
+    });
+    
   };
   
   return this;
