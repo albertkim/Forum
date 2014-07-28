@@ -5,7 +5,7 @@
   left: 0;
   width: 350px;
   height: calc(100% - 140px);
-  background-color: #ACD1E9;
+  background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
 }
@@ -29,7 +29,7 @@
   background-color: #F0F0F0;
 }
 
-.categoryWrapper{
+.topicUserWrapper{
   width: 25px;
   height: 40px;
   float: left;

@@ -3,7 +3,7 @@
 Handlers = (function() {
   // config parameters passed in from index.jsp
   // currentCategory
-  // currentTopic
+  // currentTopicId
   var config = {};
 
   var init = function(settings) {
@@ -45,7 +45,7 @@ Handlers = (function() {
     // Highlight current topic
     $(".topicElement").on("click", function() {
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).find(".categoryWrapper").html().toString();
+      var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).attr("topicId");
       location.href = (url + parameters);
     });
   };

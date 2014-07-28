@@ -4,14 +4,26 @@
   top: 0;
   height: 95px;
   width: calc(80% - 380px);
-  background-color: #336699;
+  background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
 }
 
+.categoryLabel{
+  position: absolute;
+  bottom: 0px;
+  width: 400px;
+}
+
+.categoryWrapper{
+  position: relative;
+  left: 400px;
+  height: 40px;
+}
+
 .category{
-  color: white;
-  font-size: 1em;
+  color: black;
+  font-size: 0.9em;
   box-sizing: border-box;
   padding: 2px;
 }
@@ -19,5 +31,5 @@
 .category:hover{
   border-style: solid;
   border-width: 1px;
-  border-color: white;
+  border-color: black;
 }

@@ -5,7 +5,7 @@
 <c:choose>
   <c:when test="${not empty currentCategory}">
 
-    <div id="topicDiv" class="backgroundbox" style="float: left; height: auto; overflow: hidden;">
+    <div id="topicDiv" class="backgroundbox" topicId="${allTopics[row.index].TOPICID}" style="float: left; height: auto; overflow: hidden;">
       <h4>TOPICS</h4>
       <div style="height: 1px; background-color: black;"></div>
       <c:forEach items="${allTopics}" varStatus="row">
@@ -19,7 +19,7 @@
           </c:otherwise>
         </c:choose>
           <div style="width: auto; height: auto; overflow: hidden;">
-            <div class="categoryWrapper">${allTopics[row.index].TOPICID}</div>
+            <!-- <div class="topicUserWrapper"></div> -->
             <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
             <c:choose>
               <c:when test="${isAdmin == 'true'}">

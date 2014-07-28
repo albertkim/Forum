@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:choose>
   <c:when test="${not empty param.topicId}">
     <div id="postDivWrapper" class="backgroundbox" style="overflow: hidden;">
@@ -89,12 +90,15 @@
         </c:forEach>
         
       </div>
-              
     </div>
+    <div class="button addPostButton">Add Post</div>
   </c:when>
+  <c:otherwise>
+    ${currentCategory} Home
+  </c:otherwise>
 </c:choose>
               
-<div class="button addPostButton">Add Post</div>
+
               
 <!-- Padding for the bottom of the page -->
 <div style="height: 100px"></div>

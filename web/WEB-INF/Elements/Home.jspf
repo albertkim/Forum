@@ -1,3 +1,11 @@
+<div class="announcement">
+  Welcome to version 0.01 of my forum, built from scratch in Java EE.
+</div>
+
+<div class="announcement">
+  Many bug fixes and feature additions on the way, stay tuned.
+</div>
+
 <div style="float: none">
   <div class="bigCategory" category="Debate" style="background-color: #013233; float:left">
     <div class="bigCategoryLabel">

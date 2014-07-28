@@ -1,9 +1,9 @@
 <!-- Read current category from URL and set accordingly -->
 <div class="currentCategory" category="${currentCategory}">
-  <div style="float: left;"><h1>${currentCategory}</h1></div>
+  <div class="categoryLabel" style="float: left;"><h2>${currentCategory}</h2></div>
 </div>
 
-<div  style="float: left;">
+<div class="categoryWrapper" style="float: left;">
   <c:forEach items="${allCategories}" var="category">
     <div class="category" categoryId="${category.CATEGORYID}">${category.NAME}</div>
   </c:forEach>

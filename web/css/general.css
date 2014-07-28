@@ -1,12 +1,12 @@
 body{
-  font-family: Tahoma;
+  font-family: Century Gothic;
 }
 
 h1{
   font-family: Helvetica;
   width: 600px;
   font-size: 3em;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -37,19 +37,19 @@ h1{
   top: 0;
   height: 95px;
   width: 350px;
-  background-color: #336699;
+  background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
 }
 
 .upperrightpanel{
-  color: white;
+  color: black;
   position: fixed;
   right: 0px;
   top: 0;
   height: 95px;
   width: 345px;
-  background-color: #336699;
+  background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
 }
