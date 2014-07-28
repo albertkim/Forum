@@ -36,3 +36,4 @@ Progress screenshots:
 ![Alt text](/src/img/July 12.png?raw=true "July 12")
 ![Alt text](/src/img/July 13.PNG?raw=true "July 13")
 ![Alt text](/src/img/July 22.PNG?raw=true "July 22")
+![Alt text](/src/img/July 22.PNG?raw=true "July 27")
