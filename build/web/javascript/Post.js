@@ -19,7 +19,7 @@ var Post = function() {
   this.init = function(settings){
     console.log("Post instantiated");
     $.extend(config, settings);
-    console.log(config);
+    // console.log(config);
     postElement = $(".postElement[postid=" + config.postId + "]");
     // console.log($(postElement));
     this.initHandlers();
@@ -42,7 +42,7 @@ var Post = function() {
     
     // Post deletion handlers
     $(postElement).find(".deletePost").on("click", function(event){
-      console.log(config);
+      // console.log(config);
       $.ajax({
         url: "postAction",
         data: {

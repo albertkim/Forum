@@ -39,6 +39,8 @@ public class Post implements Serializable {
   private int DOWNVOTES;
   @Column
   private String CUSTOM;
+  @Column
+  private boolean DELETED;
   
   @Transient
   private String USERNAME;
@@ -166,6 +168,14 @@ public class Post implements Serializable {
 
   public void setPARENTUSERNAME(String PARENTUSERNAME) {
     this.PARENTUSERNAME = PARENTUSERNAME;
+  }
+
+  public boolean isDELETED() {
+    return DELETED;
+  }
+
+  public void setDELETED(boolean DELETED) {
+    this.DELETED = DELETED;
   }
 
 }

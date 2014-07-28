@@ -22,7 +22,11 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public void deletePost(int postId) {
-    em.remove(getPost(postId));
+    // Deleting a post does not remove from database
+    // Flags the post DELETED fields as true;
+    Post post = getPost(postId);
+    post.setDELETED(true);
+    em.persist(post);
   }
 
   @Override
@@ -31,6 +35,7 @@ public class PostDao implements PostDaoLocal {
   }
 
   @Override
+  // This method will also get back deleted posts, use wisely
   public Post getPost(int postId) {
     Post post = em.find(Post.class, postId);
     return setTransientFields(post);
@@ -38,7 +43,7 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public List<Post> getAllPosts() {
-    Query queryUser = em.createQuery("SELECT p FROM Post p");
+    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.DELETED = FALSE");
     List<Post> postList = queryUser.getResultList();
     List<Post> returnPostList = queryUser.getResultList();
     for(Post p: postList){
@@ -49,7 +54,7 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public List<Post> getAllPostsWithTopicId(int topicId) {
-    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.TOPICID = " + Integer.toString(topicId));
+    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.TOPICID = " + Integer.toString(topicId) + " AND p.DELETED = FALSE");
     List<Post> postList = queryUser.getResultList();
     List<Post> returnPostList = new ArrayList<>();
     for(Post p: postList){

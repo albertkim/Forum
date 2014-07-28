@@ -56,6 +56,10 @@ public class mainServlet extends HttpServlet {
         }
         request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
         session.setAttribute("topicId", topicIdString);
+      } else{
+        // No specified topics
+        // Get top rated/viewed topics
+        
       }
     } else {
       session.setAttribute("message", "No messages");

@@ -1,0 +1,32 @@
+<div style="float: none">
+  <div class="bigCategory" category="Debate" style="background-color: #013233; float:left">
+    <div class="bigCategoryLabel">
+      <div class="labelText">Debate</div>
+    </div>
+  </div>
+  <div class="bigCategory" category="Finance" style="background-color: #FF3234; float:left">
+    <div class="bigCategoryLabel">
+      <div class="labelText">Finance</div>
+    </div>
+  </div>
+  <div class="bigCategory" category="Technology" style="background-color: #669899; float:left">
+    <div class="bigCategoryLabel">
+      <div class="labelText">Technology</div>
+    </div>
+  </div>
+  <div class="bigCategory" category="Off-Topic" style="background-color: #989898; float:left">
+    <div class="bigCategoryLabel">
+      <div class="labelText">Off-Topic</div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div style="float: none">
+  
+</div>
+
+<script type="text/javascript">
+  Home.init({});
+</script>

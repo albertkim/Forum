@@ -27,7 +27,7 @@
               <div class="contentWrapper">
                 <c:choose>
                   <c:when test="${not empty post.PARENTPOST}">
-                    Reply to:
+                    Reply to ${post.PARENTUSERNAME}:
                     <div class="replyPostElement">${post.PARENTPOST}</div>
                   </c:when>
                 </c:choose>

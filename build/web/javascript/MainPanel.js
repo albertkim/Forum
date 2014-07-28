@@ -24,7 +24,7 @@ var MainPanel = (function() {
     // Object is processed in Post object
   var addPost = function(postJson){
     console.log("Adding post");
-    console.log(postJson);
+    // console.log(postJson);
     var postObject = new Post();
     postObject.init(postJson);
     postsList.push(postObject);
@@ -33,7 +33,6 @@ var MainPanel = (function() {
   var initGeneralHandlers = function(){
     // Bring up the 'Add Posts' popup
     $(".addPostButton").on("click", function() {
-      console.log("clicked");
       $(".reply-wrapper").hide();
       $(".add-post-wrapper").show();
     });

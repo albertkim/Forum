@@ -8,17 +8,16 @@
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <link rel="stylesheet" type="text/css" href="css/LeftPanel.css">
     <link rel="stylesheet" type="text/css" href="css/MainPanel.css">
-    <link rel="stylesheet" type="text/css" href="css/MainPanelHome.css">
+    <link rel="stylesheet" type="text/css" href="css/Home.css">
     <link rel="stylesheet" type="text/css" href="css/TopPanel.css">
     <link rel="stylesheet" type="text/css" href="css/Popup.css">
     <script type="text/javascript" src="javascript/Handlers.js"></script>
-    <script type="text/javascript" src="javascript/MainPanelHome.js"></script>
+    <script type="text/javascript" src="javascript/Home.js"></script>
     <script type="text/javascript" src="javascript/Post.js"></script>
     <script type="text/javascript" src="javascript/MainPanel.js"></script>
     <script type="text/javascript" src="javascript/Login.js"></script>
     <script type="text/javascript" src="javascript/AddPost.js"></script>
     <script type="text/javascript" src="javascript/AddTopic.js"></script>
-    <script type="text/javascript" src="javascript/utilities.js"></script>
     <script type="text/javascript" src="javascript/Rating.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
@@ -38,16 +37,7 @@
     </div>
 
     <div class="leftpanel">
-      <c:choose>
-        <c:when test="${not empty currentCategory}">
-          <%@ include file="WEB-INF/Elements/LeftPanel.jsp"%>
-        </c:when>
-        <c:otherwise>
-          <div>
-            Select a category
-          </div>
-        </c:otherwise>
-      </c:choose>
+      <%@ include file="WEB-INF/Elements/LeftPanel.jsp"%>
     </div>
 
     <div class="toppanel">
@@ -65,7 +55,7 @@
         </c:when>
         <c:otherwise>
           <div>
-            <%@ include file="WEB-INF/Elements/MainPanelHome.jsp"%>
+            <%@ include file="WEB-INF/Elements/Home.jspf"%>
           </div>
         </c:otherwise>
       </c:choose>

@@ -1,4 +1,4 @@
-MainPanelHome = (function() {
+Home = (function() {
   var config = {};
 
   var init = function(settings) {

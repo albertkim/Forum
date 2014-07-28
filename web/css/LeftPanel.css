@@ -15,7 +15,7 @@
 .topicElement{
   width: 330px;
   height: 75px;
-  font-size: 1.1em;
+  font-size: 1em;
   box-sizing: border-box;
 }
 
@@ -41,6 +41,7 @@
   height: 40px;
   float: left;
   margin: 5px;
+  text-overflow: ellipsis;
 }
 
 .topicDetailsWrapper{
