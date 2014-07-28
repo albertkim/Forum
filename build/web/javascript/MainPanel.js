@@ -16,7 +16,6 @@ var MainPanel = (function() {
     console.log("MainPanel instantiated");
     $.extend(config, settings);
     // console.log(config);
-    initGeneralHandlers();
   };
   
   // Input:
@@ -33,6 +32,7 @@ var MainPanel = (function() {
   var initGeneralHandlers = function(){
     // Bring up the 'Add Posts' popup
     $(".addPostButton").on("click", function() {
+      console.log("click");
       $(".reply-wrapper").hide();
       $(".add-post-wrapper").show();
     });
@@ -48,7 +48,8 @@ var MainPanel = (function() {
     config: config,
     postsList: postsList,
     init: init,
-    addPost: addPost
+    addPost: addPost,
+    initGeneralHandlers: initGeneralHandlers
   };
   
 })();

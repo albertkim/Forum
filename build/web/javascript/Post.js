@@ -19,7 +19,7 @@ var Post = function() {
   this.init = function(settings){
     console.log("Post instantiated");
     $.extend(config, settings);
-    // console.log(config);
+    // console.log(settings);
     postElement = $(".postElement[postid=" + config.postId + "]");
     // console.log($(postElement));
     this.initHandlers();

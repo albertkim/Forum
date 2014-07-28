@@ -22,6 +22,17 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Debate</title>
   </head>
+  
+  <script type="text/javascript">
+    MainPanel.init({
+      currentUser: {
+        userId: "${currentUser.USERID}",
+        username: "${currentUser.USERNAME}"
+      },
+      currentCategory: "${currentCategory}",
+      currentTopicId: "${currentTopicId}"
+    });
+  </script>
 
   <body>
     <%@ include file="WEB-INF/Popups/Register.jsp"%>
@@ -64,14 +75,7 @@
 
   <script type="text/javascript">
     
-    MainPanel.init({
-      currentUser: {
-        userId: "${currentUser.USERID}",
-        username: "${currentUser.USERNAME}"
-      },
-      currentCategory: "${currentCategory}",
-      currentTopicId: "${currentTopicId}"
-    });
+    MainPanel.initGeneralHandlers();
     
     Handlers.init({
       currentCategory: "${currentCategory}",

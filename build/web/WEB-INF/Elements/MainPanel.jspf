@@ -57,7 +57,7 @@
                 
             </div>
                 
-            <!-- Details section -->    
+            <!-- Details section -->
             <div class="detailsWrapper" hidden>
               <div class="postData" style="width: auto;">
                 <div style="float: right">${post.TIMECREATED} | ${post.REPLIES} Replies</div>
@@ -71,7 +71,7 @@
           </div>
               
           <script type="text/javascript">
-            MainPanel.addPost({
+            var rawPostObject = {
               userId: "${userId}",
               postId: "${postId}",
               topicId: "${topicId}",
@@ -81,7 +81,8 @@
               downvotes: "${downvotes}",
               timeCreated: "${timeCreated}",
               isAdmin: "${isAdmin}"
-            });
+            };
+            MainPanel.addPost(rawPostObject);
           </script>
           
           <div style="height: 5px;"></div>

@@ -15,6 +15,8 @@ To Do:
 * (done) --------------- Implement Categories (do this ASAP before things get too complicated)
 * (done) --------------- Show topic/post statistics (use Transient entity bean annotation)
 * (done) --------------- Add rating system per post (db system required to track who voted for what)
+* (done) --------------- Deploy on EC2
+* (done) --------------- Server-side handling of new-line characters
 
 * (in progress) ------- Properly organize javascript model instantiations (right now it's a mess)
 * (in progress) ------- Add category-specific custom data post options

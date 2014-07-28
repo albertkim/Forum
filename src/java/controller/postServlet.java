@@ -46,7 +46,10 @@ public class postServlet extends HttpServlet {
         String userIdString = request.getParameter("USERID");
         int userId = Integer.parseInt(userIdString);
         String parentIdString = request.getParameter("POSTID");
-        String content = request.getParameter("CONTENT");
+        
+        // Get content string and parse to deal with new lines
+        String content = request.getParameter("CONTENT").replaceAll("\\r|\\n", "<br>");
+        System.out.println(content);
         
         if("".equals(content)){
           session.setAttribute("message", "Cannot make an empty post");
