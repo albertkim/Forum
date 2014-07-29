@@ -88,6 +88,11 @@ public class TopicDao implements TopicDaoLocal{
     int replies = queryUser.getResultList().size();
     topic.setREPLIES(replies);
     
+    // Set category name
+    queryUser = em.createQuery("SELECT c.NAME FROM Category c WHERE c.CATEGORYID =" + topic.getCATEGORYID());
+    String name = (String) queryUser.getSingleResult();
+    topic.setCATEGORYNAME(name);
+    
     return topic;
   }
 

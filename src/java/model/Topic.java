@@ -35,6 +35,8 @@ public class Topic implements Serializable {
   
   @Transient
   private int REPLIES;
+  @Transient
+  private String CATEGORYNAME;
 
   public Topic() {
 
@@ -115,6 +117,14 @@ public class Topic implements Serializable {
 
   public void setREPLIES(int REPLIES) {
     this.REPLIES = REPLIES;
+  }
+
+  public String getCATEGORYNAME() {
+    return CATEGORYNAME;
+  }
+
+  public void setCATEGORYNAME(String CATEGORYNAME) {
+    this.CATEGORYNAME = CATEGORYNAME;
   }
 
 }

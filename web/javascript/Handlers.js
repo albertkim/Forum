@@ -45,7 +45,7 @@ Handlers = (function() {
     // Highlight current topic
     $(".topicElement").on("click", function() {
       var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      var parameters = "?" + "category=" + config.currentCategory + "&topicId=" + $(this).attr("topicId");
+      var parameters = "?" + "category=" + $(this).attr("category") + "&topicId=" + $(this).attr("topicId");
       location.href = (url + parameters);
     });
   };
