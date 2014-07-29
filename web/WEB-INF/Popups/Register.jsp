@@ -7,11 +7,15 @@
     <table>
       <tr>
         <td>Username</td>
-        <td><input type="text" name="USERNAME" value="${user.USERNAME}"/></td>
+        <td><input type="text" name="USERNAME"/></td>
       </tr>
       <tr>
         <td>Password</td>
-        <td><input type="password" name="PASSWORD" value="${user.PASSWORD}"/></td>
+        <td><input type="password" name="PASSWORD"/></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="email" name="EMAIL"/></td>
       </tr>
     </table>
     <input  style="float: right" type="submit" name="action" value="register" />

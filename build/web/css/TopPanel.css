@@ -3,7 +3,7 @@
   left: 375px;
   top: 0;
   height: 95px;
-  width: calc(80% - 380px);
+  width: 1155px;
   background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
@@ -12,20 +12,22 @@
 .categoryLabel{
   position: absolute;
   bottom: 0px;
-  width: 400px;
+  width: 300px;
 }
 
 .categoryWrapper{
   position: relative;
-  left: 400px;
+  bottom: 0px;
   height: 40px;
 }
 
 .category{
+  float: left;
   color: black;
   font-size: 0.9em;
   box-sizing: border-box;
   padding: 2px;
+  margin-right: 30px;
 }
 
 .category:hover{

@@ -99,10 +99,13 @@ public class postServlet extends HttpServlet {
       // PASSWORD
       
       else if ("register".equalsIgnoreCase(action)) {
+        // TODO: Check username formatting
         String username = request.getParameter("USERNAME");
         String password = request.getParameter("PASSWORD");
+        // Verify email formatting/uniqueness
+        String email = request.getParameter("EMAIL");
         try{
-          Profile user = new Profile(username, password);
+          Profile user = new Profile(username, password, email);
           if (userDao.userExists(username)) {
             session.setAttribute("message", "Username already exists");
           } else {

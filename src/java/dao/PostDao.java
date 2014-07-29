@@ -82,8 +82,14 @@ public class PostDao implements PostDaoLocal {
     // Set reply count
     int postId = post.getPOSTID();
     queryUser = em.createQuery("SELECT p FROM Post p WHERE p.PARENTID = " + Integer.toString(postId));
-    List<Post> replies = queryUser.getResultList();
-    post.setREPLIES(replies.size());
+    List<Post> allReplies = queryUser.getResultList();
+    List<Post> noDeletedReplies = new ArrayList<>();
+    for(Post p: allReplies){
+      if(!p.isDELETED()){
+        noDeletedReplies.add(p);
+      }
+    }
+    post.setREPLIES(noDeletedReplies.size());
     
     return post;
   }

@@ -55,14 +55,15 @@ public class mainServlet extends HttpServlet {
           return;
         }
         request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
-        session.setAttribute("topicId", topicIdString);
+        session.setAttribute("topicId", topicIdString); // Why is this session set?
       } else{
-        // No specified topics
-        // Get top rated/viewed topics
         
       }
     } else {
       session.setAttribute("message", "No messages");
+      // No specified topics
+      // Get top rated/viewed topics
+      request.setAttribute("allTopics", topicDao.getTopTopics());
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);

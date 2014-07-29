@@ -30,6 +30,8 @@ public class Profile implements Serializable {
   @Column
   private String PASSWORD;
   @Column
+  private String EMAIL;
+  @Column
   private java.sql.Date DATECREATED;
   @Column
   private java.sql.Date LASTLOGIN;
@@ -44,9 +46,10 @@ public class Profile implements Serializable {
 
   }
 
-  public Profile(String username, String password) throws Exception{
-    this.USERNAME = username;
+  public Profile(String username, String password, String email) throws Exception{
+    this.setUSERNAME(username);
     this.setPASSWORD(password);
+    this.setEMAIL(email);
 
     Date utilDate = new Date();
     this.DATECREATED = new java.sql.Date(utilDate.getTime());
@@ -91,6 +94,14 @@ public class Profile implements Serializable {
 
   public void setLASTLOGIN(java.sql.Date LASTLOGIN) {
     this.LASTLOGIN = LASTLOGIN;
+  }
+
+  public String getEMAIL() {
+    return EMAIL;
+  }
+
+  public void setEMAIL(String EMAIL) {
+    this.EMAIL = EMAIL;
   }
   
   public static String hashPassword(String password) throws Exception{
