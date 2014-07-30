@@ -1,8 +1,7 @@
 <div class="announcement">
-  Welcome to version 0.01 of my forum, built from scratch in Java EE.
-</div>
-
-<div class="announcement">
+  Welcome to version 0.01 of my forum, built from scratch in Java EE. 
+  <br>
+  <br>
   Many bug fixes and feature additions on the way, stay tuned.
 </div>
 

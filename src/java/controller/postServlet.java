@@ -102,16 +102,18 @@ public class postServlet extends HttpServlet {
         // TODO: Check username formatting
         String username = request.getParameter("USERNAME");
         String password = request.getParameter("PASSWORD");
+        String confirmPassword = request.getParameter("CONFIRMPASSWORD");
         // Verify email formatting/uniqueness
         String email = request.getParameter("EMAIL");
         try{
-          Profile user = new Profile(username, password, email);
           if (userDao.userExists(username)) {
             session.setAttribute("message", "Username already exists");
+          } else if(!password.equals(confirmPassword)){
+            session.setAttribute("message", "Passwords don't match");
           } else {
+            Profile user = new Profile(username, password, email);
             userDao.addUser(user);
           }
-          request.setAttribute("user", user);
         } catch(Exception e){
           System.out.println("Failed to create user " + username + " with password " + password);
           e.printStackTrace();

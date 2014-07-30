@@ -15,6 +15,7 @@
 
   <div style="height: 1px; background-color: black;"></div>
   <c:forEach items="${allTopics}" varStatus="row">
+    
     <c:set var="topic" value="${allTopics[row.index]}"/>
     <c:choose>
       <c:when test="${allTopics[row.index].TOPICID == param.topicId}">
@@ -36,6 +37,7 @@
       <div class="topicDetailsWrapper">${allTopics[row.index].DATECREATED} | ${allTopics[row.index].REPLIES} Replies</div>
       </div>
     <div style="height: 1px; background-color: black;"></div>
+    
   </c:forEach>
   <div style="height: 10px"></div>
   <div class="button addTopicButton" style="float: left;">Add Topic</div>

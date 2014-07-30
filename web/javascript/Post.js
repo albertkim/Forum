@@ -27,16 +27,20 @@ var Post = function() {
   
   this.initHandlers = function(){
     // Post expanding/collapsing handlers
-    $(postElement).on("click", function() {
+    $(postElement).find(".contentWrapper").on("click", postElement, function(event) {
       // Remove selected class and reply elements from all other posts
-      $(".postElement").not($(postElement)).removeClass("selected");
-      $(".postElement").not($(postElement)).find(".detailsWrapper").hide();
-      if ($(postElement).hasClass("selected")) {
+      var thisPostElement = $(event.data);
+      console.log(thisPostElement);
+      $(".postElement").not(thisPostElement).removeClass("selected");
+      $(".postElement").not(thisPostElement).find(".detailsWrapper").hide();
+      if (thisPostElement.hasClass("selected")) {
         // Give some option to remove the selected state of the post
+        $(".postElement").removeClass("selected");
+        $(".postElement").find(".detailsWrapper").hide();
       } else {
         // Add selected tag and reply element
-        $(postElement).addClass("selected");
-        $(postElement).find(".detailsWrapper").show();
+        thisPostElement.addClass("selected");
+        thisPostElement.find(".detailsWrapper").show();
       }
     });
     

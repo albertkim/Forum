@@ -7,4 +7,5 @@
   <c:forEach items="${allCategories}" var="category">
     <div class="category" categoryId="${category.CATEGORYID}">${category.NAME}</div>
   </c:forEach>
+  <div class="topLink about">About Me (Coming Soon)</div>
 </div>

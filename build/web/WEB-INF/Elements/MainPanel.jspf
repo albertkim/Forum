@@ -2,7 +2,7 @@
 <c:choose>
   <c:when test="${not empty param.topicId}">
     <div id="postDivWrapper" class="backgroundbox" style="overflow: hidden;">
-      <div id="postDiv" style="float: left;">
+
         
         <!-- For each post -->
         <c:forEach items="${allPosts}" var="post">
@@ -18,11 +18,14 @@
           
           <!-- Start of post element -->
           <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
-            ${post.USERNAME}
-            <div style="width: 1100px; height: auto; overflow: hidden;">
+            
+            <div style="width: 100%; height: auto; overflow: hidden;">
               
               <!-- User section -->
-              <div class="userWrapper">${post.USERID}/${post.POSTID}</div>
+              <div class="userWrapper">
+                ${post.USERNAME} 
+                <div class="userAvatar"></div>
+              </div>
               
               <!-- Content section -->
               <div class="contentWrapper">
@@ -88,8 +91,7 @@
           
           <div style="height: 5px;"></div>
         </c:forEach>
-        
-      </div>
+
     </div>
     <div class="button addPostButton">Add Post</div>
   </c:when>

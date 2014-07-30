@@ -14,6 +14,10 @@
         <td><input type="password" name="PASSWORD"/></td>
       </tr>
       <tr>
+        <td>Confirm Password</td>
+        <td><input type="password" name="CONFIRMPASSWORD"/></td>
+      </tr>
+      <tr>
         <td>Email</td>
         <td><input type="email" name="EMAIL"/></td>
       </tr>

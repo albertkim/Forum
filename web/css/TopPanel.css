@@ -3,7 +3,7 @@
   left: 375px;
   top: 0;
   height: 95px;
-  width: 1155px;
+  width: calc((100% - 370px) * 0.74 - 10px);
   background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
@@ -16,6 +16,7 @@
 }
 
 .categoryWrapper{
+  width: 100%;
   position: relative;
   bottom: 0px;
   height: 40px;
@@ -31,6 +32,21 @@
 }
 
 .category:hover{
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.topLink{
+  float: right;
+  color: black;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  padding: 2px;
+  margin-right: 30px;
+}
+
+.topLink:hover{
   border-style: solid;
   border-width: 1px;
   border-color: black;
