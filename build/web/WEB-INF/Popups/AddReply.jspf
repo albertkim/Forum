@@ -17,7 +17,7 @@
         <div class="button submitReply" style="float: right">Submit</div>
       </c:when>
       <c:otherwise>
-        <div style="float: right">Register to reply to threads</div>
+        <div style="float: right">Login to reply to threads</div>
       </c:otherwise>
     </c:choose>
   </form>

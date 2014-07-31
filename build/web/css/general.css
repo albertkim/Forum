@@ -49,12 +49,8 @@ h1{
   right: 0px;
   top: 0;
   height: 95px;
-  width: calc((100% - 370px) * 0.26 - 40px);
+  width: 350px;
   background-color: #F0F0F0;
   padding: 10px;
   z-index: 9;
-}
-
-.wrapper{
-  
 }

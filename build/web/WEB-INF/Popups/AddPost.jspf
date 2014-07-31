@@ -17,7 +17,6 @@
         <input style="float: right" type="submit" name="action" value="addPost"></input>
       </c:when>
       <c:otherwise>
-        <button type="button" class="registerButton" style="float: right">Register</button>
         <div style="float: right; margin-right: 10px;">Login to reply to threads </div>
       </c:otherwise>
     </c:choose>

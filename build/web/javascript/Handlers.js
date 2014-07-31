@@ -9,6 +9,7 @@ Handlers = (function() {
   var init = function(settings) {
     $.extend(config, settings);
     initTitleHandlers();
+    aboutMeHandler();
     initCurrentCategoryHandlers();
     initCategoryHandlers();
     initTopicHandlers();
@@ -24,10 +25,17 @@ Handlers = (function() {
     });
   };
   
+  var aboutMeHandler = function() {
+    $(".about").on("click", function(){
+      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet/aboutMe";
+      location.href = (url);
+    });
+  };
+  
   var initCurrentCategoryHandlers = function() {
     // Clicking on the current category (top of page) should go to category home page
     $(".currentCategory").on("click", function() {
-      var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
       var parameters = "?" + "category=" + config.currentCategory; 
       location.href = (url + parameters);
     });
@@ -35,7 +43,7 @@ Handlers = (function() {
   
   var initCategoryHandlers = function() {
     $(".category").on("click", function() {
-      var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
       var parameters = "?" + "category=" + $(this).html(); 
       location.href = (url + parameters);
     });

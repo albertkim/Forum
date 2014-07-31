@@ -3,14 +3,14 @@
   overflow: auto;
   left: 370px;
   top: 120px;
-  width: 61%;
+  width: calc(100% - 350px - 350px - 40px);
   z-index: 8;
   font-size: 0.9em;
 }
 
 .postElement{
   width: 100%;
-  height: auto;
+  min-height: auto;
   float: left;
   padding: 10px;
 }
@@ -49,7 +49,7 @@
 
 .contentWrapper{
   width: calc((100% - 90px) * 0.85);
-  min-height: 55px;
+  min-height: 80px;
   padding: 5px;
   margin: 5px;
   margin-top: 20px;

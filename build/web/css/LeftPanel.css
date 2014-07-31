@@ -17,6 +17,7 @@
   height: 75px;
   font-size: 1em;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .topicElement:hover{

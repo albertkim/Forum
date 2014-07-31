@@ -4,8 +4,10 @@
 </div>
 
 <div class="categoryWrapper" style="float: left;">
-  <c:forEach items="${allCategories}" var="category">
-    <div class="category" categoryId="${category.CATEGORYID}">${category.NAME}</div>
-  </c:forEach>
+  <div class="category" categoryId="1">Debate</div>
+  <div class="category" categoryId="2">Finance</div>
+  <div class="category" categoryId="3">Technology</div>
+  <div class="category" categoryId="4">Off-Topic</div>
+  
   <div class="topLink about">About Me (Coming Soon)</div>
 </div>
