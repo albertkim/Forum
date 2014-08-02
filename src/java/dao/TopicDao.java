@@ -79,6 +79,12 @@ public class TopicDao implements TopicDaoLocal{
       }
     });
     Collections.reverse(topicList);
+    
+    // Only return the top 10
+    if(topicList.size() > 10){
+      topicList.subList(0, 9);
+    }
+    
     return topicList;
   }
   

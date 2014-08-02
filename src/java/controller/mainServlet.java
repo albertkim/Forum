@@ -46,6 +46,7 @@ public class mainServlet extends HttpServlet {
       
       // Then process topic parameter
       String topicIdString = request.getParameter("topicId");
+      
       if (topicIdString != null) {
         int topicId = Integer.parseInt(topicIdString);
         // Return to home page if topic does not exist
@@ -53,21 +54,23 @@ public class mainServlet extends HttpServlet {
         if(!topicDao.topicExists(topicId)){
           response.sendRedirect("mainServlet");
           return;
+        } else{
+          // Topic exists
+          request.setAttribute("currentTopic", topicDao.getTopic(topicId));
         }
         request.setAttribute("allPosts", postDao.getAllPostsWithTopicId(topicId));
-        session.setAttribute("topicId", topicIdString); // Why is this session set?
       } else{
         
       }
     } else {
-      session.setAttribute("message", "No messages");
+      session.setAttribute("message", null);
       // No specified topics
       // Get top rated/viewed topics
       request.setAttribute("allTopics", topicDao.getTopTopics());
     }
 
     request.getRequestDispatcher("index.jsp").forward(request, response);
-    session.setAttribute("message", "No messages");
+    session.setAttribute("message", null);
 
   }
 

@@ -90,6 +90,55 @@
   float: right;
 }
 
+/* Topic URL on top of page */
+
+.current-url-preview{
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  
+  border-radius: 2px;
+  border-width: thin;
+  border-style: solid;
+  border-color: #D0D0D0;
+}
+
+.current-url-preview:hover{
+  border-radius: 2px;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  background-color: #F0F0F0;
+  cursor: pointer;
+}
+
+.current-preview-thumbnail{
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 10px;
+}
+
+.current-preview-title{
+  width: calc(100% - 100px);
+  float: left;
+  padding-top: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+}
+
+.current-preview-description{
+  width: calc(100% - 20px);
+  padding: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+}
+
 /* Voting elements */
 
 .votingWrapper{

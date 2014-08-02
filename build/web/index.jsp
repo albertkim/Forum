@@ -20,19 +20,11 @@
     <script type="text/javascript" src="javascript/AddTopic.js"></script>
     <script type="text/javascript" src="javascript/Rating.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
+    <script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
     <title>Debate</title>
   </head>
-  
-  <script type="text/javascript">
-    MainPanel.init({
-      currentUser: {
-        userId: "${currentUser.USERID}",
-        username: "${currentUser.USERNAME}"
-      },
-      currentCategory: "${currentCategory}",
-      currentTopicId: "${currentTopicId}"
-    });
-  </script>
 
   <body>
     <%@ include file="WEB-INF/Popups/Register.jsp"%>
@@ -42,6 +34,18 @@
     
     <c:set var="currentCategory" value="${param.category}"/>
     <c:set var="currentTopicId" value="${param.topicId}"/>
+    <c:set var="currentTopic" value="${currentTopic}"/>
+    
+    <script type="text/javascript">
+      MainPanel.init({
+        currentUser: {
+          userId: "${currentUser.USERID}",
+          username: "${currentUser.USERNAME}"
+        },
+        currentCategory: "${currentCategory}",
+        currentTopicId: "${currentTopicId}"
+      });
+    </script>
 
     <div class="upperleftpanel">
       <%@ include file="WEB-INF/Elements/UpperLeftPanel.jsp"%>

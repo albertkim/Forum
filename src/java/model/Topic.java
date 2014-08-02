@@ -25,6 +25,8 @@ public class Topic implements Serializable {
   @Column
   private String CONTENT;
   @Column
+  private String URL;
+  @Column
   private java.sql.Date DATECREATED;
   @Column
   private java.sql.Timestamp TIMECREATED;
@@ -42,7 +44,7 @@ public class Topic implements Serializable {
 
   }
 
-  public Topic(int userId, int categoryId, String content) {
+  public Topic(int userId, int categoryId, String content, String url) {
     this.USERID = userId;
     this.CATEGORYID = categoryId;
     this.CONTENT = content;
@@ -51,6 +53,7 @@ public class Topic implements Serializable {
     this.TIMECREATED = new java.sql.Timestamp(utilDate.getTime());
     this.DATEUPDATED = this.DATECREATED;
     this.TIMEUPDATED = new java.sql.Timestamp(utilDate.getTime());
+    this.URL = url;
   }
 
   public int getTOPICID() {
@@ -83,6 +86,14 @@ public class Topic implements Serializable {
 
   public void setCONTENT(String CONTENT) {
     this.CONTENT = CONTENT;
+  }
+
+  public String getURL() {
+    return URL;
+  }
+
+  public void setURL(String URL) {
+    this.URL = URL;
   }
 
   public java.sql.Date getDATECREATED() {

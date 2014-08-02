@@ -15,7 +15,7 @@ var MainPanel = (function() {
   var init = function(settings){
     console.log("MainPanel instantiated");
     $.extend(config, settings);
-    // console.log(config);
+    // console.log(config);    
   };
   
   // Input:

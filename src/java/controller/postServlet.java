@@ -5,6 +5,7 @@ import dao.PostDaoLocal;
 import dao.ProfileDaoLocal;
 import dao.TopicDaoLocal;
 import java.io.IOException;
+import java.util.regex.Pattern;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import model.Post;
 import model.Profile;
 import model.Topic;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 @WebServlet(name = "postServlet", urlPatterns = {"/postServlet"})
 public class postServlet extends HttpServlet {
@@ -47,8 +49,10 @@ public class postServlet extends HttpServlet {
         int userId = Integer.parseInt(userIdString);
         String parentIdString = request.getParameter("POSTID");
         
-        // Get content string and parse to deal with new lines
+        // Get content string and parse to handle new lines
         String content = request.getParameter("CONTENT").replaceAll("\\r|\\n", "<br>");
+        // Handle html tags
+        content = StringEscapeUtils.escapeHtml4(content);
         System.out.println(content);
         
         if("".equals(content)){
@@ -59,7 +63,7 @@ public class postServlet extends HttpServlet {
         }
         
         int parentId = Integer.parseInt(parentIdString);
-        String topicIdString = session.getAttribute("topicId").toString();
+        String topicIdString = request.getParameter("topicId").toString();
         int topicId = Integer.parseInt(topicIdString);
         Post post = new Post(userId, content, parentId, topicId);
         postDao.addPost(post);
@@ -71,6 +75,7 @@ public class postServlet extends HttpServlet {
       // USERID
       // currentCategory
       // CONTENT
+      // URL
       // TITLE
       
       else if ("addTopic".equalsIgnoreCase(action)) {
@@ -78,10 +83,18 @@ public class postServlet extends HttpServlet {
         String userIdString = request.getParameter("USERID");
         int userId = Integer.parseInt(userIdString);
         String categoryIdString = request.getParameter("currentCategory");
-        System.out.println("categoryIdString: " + categoryIdString);
         String title = request.getParameter("TITLE");
+        String url = request.getParameter("URL");
+        
+        if(url.contains(" ")){
+          session.setAttribute("message", "Url cannot contain spaces");
+          String referer = request.getHeader("Referer");
+          response.sendRedirect(referer);
+          return;
+        }
+        
         int categoryId = categoryDao.getCategoryId(categoryIdString);
-        Topic newTopic = new Topic(userId, categoryId, title);
+        Topic newTopic = new Topic(userId, categoryId, title, url);
         topicDao.addTopic(newTopic);
         
         // Add first post entry, parent POSTID will be 0 by default
@@ -101,10 +114,32 @@ public class postServlet extends HttpServlet {
       else if ("register".equalsIgnoreCase(action)) {
         // TODO: Check username formatting
         String username = request.getParameter("USERNAME");
+        
+        if(!Pattern.compile("^[a-z0-9_-]{3,15}$").matcher(username).matches()){
+          session.setAttribute("message", "Username contains invalid characters");
+          String referer = request.getHeader("Referer");
+          response.sendRedirect(referer);
+          return;
+        }
+        
         String password = request.getParameter("PASSWORD");
         String confirmPassword = request.getParameter("CONFIRMPASSWORD");
+        
         // Verify email formatting/uniqueness
         String email = request.getParameter("EMAIL");
+        if(!email.contains("@")){
+          session.setAttribute("message", "Email must contain @");
+          String referer = request.getHeader("Referer");
+          response.sendRedirect(referer);
+          return;
+        }
+        if("".equals(email) || email.contains(" ")){
+          session.setAttribute("message", "Email cannot be empty");
+          String referer = request.getHeader("Referer");
+          response.sendRedirect(referer);
+          return;
+        }
+        
         try{
           if (userDao.userExists(username)) {
             session.setAttribute("message", "Username already exists");

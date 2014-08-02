@@ -3,94 +3,130 @@
   <c:when test="${not empty param.topicId}">
     <div id="postDivWrapper" class="backgroundbox" style="overflow: hidden;">
 
-        
-        <!-- For each post -->
-        <c:forEach items="${allPosts}" var="post">
-          
-          <c:set var="userId" value="${post.USERID}"/>
-          <c:set var="postId" value="${post.POSTID}"/>
-          <c:set var="topicId" value="${post.TOPICID}"/>
-          <c:set var="content" value="${post.CONTENT}"/>
-          <c:set var="replies" value="${post.REPLIES}"/>
-          <c:set var="upvotes" value="${post.UPVOTES}"/>
-          <c:set var="downvotes" value="${post.DOWNVOTES}"/>
-          <c:set var="timeCreated" value="${post.TIMECREATED}"/>
-          
-          <!-- Start of post element -->
-          <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
+      <!-- Display url element if there is a url on current topic -->
+      <!-- Read currentTopic variable set in index.jsp -->
+      <c:choose>
+        <c:when test="${not empty currentTopic.URL}">
             
-            <div style="width: 100%; height: auto; overflow: hidden;">
-              
-              <!-- User section -->
-              <div class="userWrapper">
-                ${post.USERNAME} 
-                <div class="userAvatar"></div>
-              </div>
-              
-              <!-- Content section -->
-              <div class="contentWrapper">
-                <c:choose>
-                  <c:when test="${not empty post.PARENTPOST}">
-                    Reply to ${post.PARENTUSERNAME}:
-                    <div class="replyPostElement">${post.PARENTPOST}</div>
-                  </c:when>
-                </c:choose>
-                <div>${post.CONTENT}</div>
-              </div>
-              
-              <!-- Delete option for admins -->
-              <c:choose>
-                <c:when test="${isAdmin == 'true'}">
-                  <a href="#" class="deletePost" postId="${post.POSTID}" topicId="${param.topicId}"></a>
-                </c:when>
-              </c:choose>
-                
-              <!-- Rating elements -->
-              <div class="votingWrapper">
-                <div class="upvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
-                  <div class="upvoteElement"></div>
-                  <div style="width: 10px; height: 25px; float: left"></div>
-                  <div class="upvotingNumber">${post.UPVOTES}</div>
-                </div>
-                <div class="downvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
-                  <div class="downvoteElement"></div>
-                  <div style="width: 10px; height: 25px; float: left"></div>
-                  <div class="downvotingNumber">${post.DOWNVOTES}</div>
-                </div>
-              </div>
-                
+          <div class="current-url-preview">
+            <div class="currentTopicUrl" hidden>${currentTopic.URL}</div>
+            <input class="experimentalCurrentTopicUrl" hidden/>
+            <div style="width: 100%; height: auto;">
+              <img class="current-preview-thumbnail"/>
+              <div class="current-preview-title"></div>
             </div>
-                
-            <!-- Details section -->
-            <div class="detailsWrapper" hidden>
-              <div class="postData" style="width: auto;">
-                <div style="float: right">${post.TIMECREATED} | ${post.REPLIES} Replies</div>
-              </div>
-              <div style="height: 20px; width: auto;">
-                <div class="button replyButton" style="float: right">Reply</div>
-              </div>
-            </div>
-              
-          <!-- End of post request -->
+            <div class="current-preview-description"></div>
           </div>
-              
+
           <script type="text/javascript">
-            var rawPostObject = {
-              userId: "${userId}",
-              postId: "${postId}",
-              topicId: "${topicId}",
-              content: "${content}",
-              replies: "${replies}",
-              upvotes: "${upvotes}",
-              downvotes: "${downvotes}",
-              timeCreated: "${timeCreated}",
-              isAdmin: "${isAdmin}"
-            };
-            MainPanel.addPost(rawPostObject);
+            // Attach the topic user-posted url to the preview div
+            $(".experimentalCurrentTopicUrl").preview({
+              key: "7cee569de4e94c758b3e94ae6d248eb5",
+              bind: false,
+              success: function(data){
+                console.log(data);
+                var thumbnailUrl = data.thumbnail_url;
+                $(".current-preview-thumbnail").attr("src", thumbnailUrl);
+                var title = data.title;
+                $(".current-preview-title").html(title);
+                var description = data.description;
+                $(".current-preview-description").html(description);
+              }
+            });
+            $(".experimentalCurrentTopicUrl").val("${currentTopic.URL}");
+            $(".experimentalCurrentTopicUrl").trigger("preview");
           </script>
           
-          <div style="height: 5px;"></div>
-        </c:forEach>
+        </c:when>
+      </c:choose>
+        
+      <!-- For each post -->
+      <c:forEach items="${allPosts}" var="post">
+
+        <c:set var="userId" value="${post.USERID}"/>
+        <c:set var="postId" value="${post.POSTID}"/>
+        <c:set var="topicId" value="${post.TOPICID}"/>
+        <c:set var="content" value="${post.CONTENT}"/>
+        <c:set var="replies" value="${post.REPLIES}"/>
+        <c:set var="upvotes" value="${post.UPVOTES}"/>
+        <c:set var="downvotes" value="${post.DOWNVOTES}"/>
+        <c:set var="timeCreated" value="${post.TIMECREATED}"/>
+
+        <!-- Start of post element -->
+        <div class="postElement" postId="${post.POSTID}" userId="${post.USERID}">
+
+          <div style="width: 100%; height: auto; overflow: hidden;">
+
+            <!-- User section -->
+            <div class="userWrapper">
+              ${post.USERNAME} 
+              <div class="userAvatar"></div>
+            </div>
+
+            <!-- Content section -->
+            <div class="contentWrapper">
+              <c:choose>
+                <c:when test="${not empty post.PARENTPOST}">
+                  Reply to ${post.PARENTUSERNAME}:
+                  <div class="replyPostElement">${post.PARENTPOST}</div>
+                </c:when>
+              </c:choose>
+              <div>${post.CONTENT}</div>
+            </div>
+
+            <!-- Delete option for admins -->
+            <c:choose>
+              <c:when test="${isAdmin == 'true'}">
+                <a href="#" class="deletePost" postId="${post.POSTID}" topicId="${param.topicId}"></a>
+              </c:when>
+            </c:choose>
+
+            <!-- Rating elements -->
+            <div class="votingWrapper">
+              <div class="upvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
+                <div class="upvoteElement"></div>
+                <div style="width: 10px; height: 25px; float: left"></div>
+                <div class="upvotingNumber">${post.UPVOTES}</div>
+              </div>
+              <div class="downvote-wrapper" style="height: 25px" postId="${post.POSTID}" userId="${post.USERID}">
+                <div class="downvoteElement"></div>
+                <div style="width: 10px; height: 25px; float: left"></div>
+                <div class="downvotingNumber">${post.DOWNVOTES}</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Details section -->
+          <div class="detailsWrapper" hidden>
+            <div class="postData" style="width: auto;">
+              <div style="float: right">${post.TIMECREATED} | ${post.REPLIES} Replies</div>
+            </div>
+            <div style="height: 20px; width: auto;">
+              <div class="button replyButton" style="float: right">Reply</div>
+            </div>
+          </div>
+
+        <!-- End of post request -->
+        </div>
+
+        <script type="text/javascript">
+          var rawPostObject = {
+            userId: "${userId}",
+            postId: "${postId}",
+            topicId: "${topicId}",
+            content: "${content}",
+            replies: "${replies}",
+            upvotes: "${upvotes}",
+            downvotes: "${downvotes}",
+            timeCreated: "${timeCreated}",
+            isAdmin: "${isAdmin}"
+          };
+          MainPanel.addPost(rawPostObject);
+        </script>
+
+        <div style="height: 5px;"></div>
+      </c:forEach>
 
     </div>
     <div class="button addPostButton">Add Post</div>

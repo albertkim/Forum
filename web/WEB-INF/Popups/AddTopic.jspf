@@ -1,15 +1,34 @@
 <div class="add-topic-wrapper" hidden>
-  <div>Create new thread</div>
-  <div class="popupCloseButton" style="float: right">Close</div>     
+  <div class="popupCloseButton" style="float: right; cursor: pointer;">Close</div>     
+  <div><h4>Create new thread</h4></div>
   <table>
     <tr>
-      Thread title
+      <td>Thread title (Required)</td>
     </tr>
     <tr>
       <td><textarea class="add-topic-title"></textarea></td>
     </tr>
+    
     <tr>
-      <td>Body</td>
+      <td>URL (Optional)</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="add-url-preview" style="width: 100%; height: 160px;" hidden>
+          <div style="width: 380px; height: auto;">
+            <img class="preview-thumbnail"></img>
+            <div class="preview-title"></div>
+          </div>
+          <div class="preview-description"></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><input class="add-url" style="width: 100%"></input></td>
+    </tr>
+    
+    <tr>
+      <td>Body (Required)</td>
     </tr>
     <tr>
       <td><textarea class="add-topic-body"></textarea></td>

@@ -27,3 +27,4 @@
     </div>
   </c:otherwise>
 </c:choose>
+<div>${message}</div>

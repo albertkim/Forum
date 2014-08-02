@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/WEB-INF/Elements/UpperRightPanel.jsp</file>
             <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/conf/persistence.xml</file>
             <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/index.jsp</file>
-            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/dao/PostDao.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/mainServlet.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/WEB-INF/Popups/AddTopic.jspf</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/src/java/controller/postServlet.java</file>
+            <file>file:/C:/Users/Albert%20Kim/Documents/NetBeansProjects/Debate%20Platform/web/javascript/AddTopic.js</file>
         </group>
     </open-files>
 </project-private>

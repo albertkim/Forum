@@ -54,7 +54,7 @@ public class PostDao implements PostDaoLocal {
 
   @Override
   public List<Post> getAllPostsWithTopicId(int topicId) {
-    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.TOPICID = " + Integer.toString(topicId) + " AND p.DELETED = FALSE");
+    Query queryUser = em.createQuery("SELECT p FROM Post p WHERE p.TOPICID = " + Integer.toString(topicId) + " AND p.DELETED = FALSE ORDER BY p.POSTID");
     List<Post> postList = queryUser.getResultList();
     List<Post> returnPostList = new ArrayList<>();
     for(Post p: postList){

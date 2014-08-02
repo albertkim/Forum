@@ -124,3 +124,28 @@
   font-family: inherit;
   font-size: inherit;
 }
+
+.preview-thumbnail{
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 10px;
+}
+
+.preview-title{
+  width: 300px;
+  float: left;
+  padding-top: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+}
+
+.preview-description{
+  width: 380px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+}
