@@ -19,6 +19,8 @@ To Do:
 * (done) --------------- Server-side handling of new-line characters
 * (done) --------------- Added display for top threads, added email field for registration, css changes
 * (done) --------------- Properly organize javascript model instantiations (right now it's a mess)
+* (done) --------------- Add 'About Me' page
+* (done) --------------- Add/display URL fields for topics when users post links
 
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)
@@ -37,3 +39,5 @@ Progress screenshots:
 ![Alt text](/src/img/July 13.PNG?raw=true "July 13")
 ![Alt text](/src/img/July 22.PNG?raw=true "July 22")
 ![Alt text](/src/img/July 27.PNG?raw=true "July 27")
+![Alt text](/src/img/August 2-1.PNG?raw=true "August 2")
+![Alt text](/src/img/August 2-2.PNG?raw=true "August 2")
