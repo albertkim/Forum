@@ -13,8 +13,8 @@ public class AdminDao implements AdminDaoLocal {
   private EntityManager em;
 
   @Override
-  public void addAdmin(String username) {
-    em.persist(new Admin(username));
+  public void addAdmin(int userId) {
+    em.persist(new Admin(userId));
   }
 
   @Override
@@ -23,9 +23,9 @@ public class AdminDao implements AdminDaoLocal {
   }
 
   @Override
-  public boolean isAdmin(String username) {
-    Query queryUser = em.createQuery("SELECT e FROM Admin e WHERE e.USERNAME = :username");
-    queryUser.setParameter("username", username);
+  public boolean isAdmin(int userId) {
+    Query queryUser = em.createQuery("SELECT e FROM Admin e WHERE e.USERID = :userId");
+    queryUser.setParameter("userId", userId);
     return (queryUser.getResultList().size() >= 1);
   }
 

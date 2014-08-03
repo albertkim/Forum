@@ -6,10 +6,10 @@ import model.Admin;
 @Local
 public interface AdminDaoLocal {
 
-  void addAdmin(String username);
+  void addAdmin(int userId);
   
   void removeAdmin(Admin admin);
   
-  boolean isAdmin(String username);
+  boolean isAdmin(int userId);
   
 }

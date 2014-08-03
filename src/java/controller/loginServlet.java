@@ -37,11 +37,12 @@ public class loginServlet extends HttpServlet {
         String password = request.getParameter("PASSWORD");
         try {
           if(profileDao.userExists(username)){
+            int userId = profileDao.getUser(username).getUSERID();
             if(profileDao.verifyUser(username, password)){
               System.out.println("User " + username + " has successfully logged in");
               session.setAttribute("message", "Logged in successfully");
               session.setAttribute("currentUser", profileDao.getUser(username));
-              if(adminDao.isAdmin(username)){
+              if(adminDao.isAdmin(userId)){
                 session.setAttribute("isAdmin", "true");
               }
             }

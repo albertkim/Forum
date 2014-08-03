@@ -16,9 +16,12 @@ public class Category implements Serializable{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private int CATEGORYID;
-  
   @Column
   private String NAME;
+  @Column
+  private boolean OPENTOPUBLIC;
+  @Column
+  private String CUSTOM;
   
   public Category(){
     
@@ -38,6 +41,22 @@ public class Category implements Serializable{
 
   public void setNAME(String NAME) {
     this.NAME = NAME;
+  }
+
+  public boolean isOPENTOPUBLIC() {
+    return OPENTOPUBLIC;
+  }
+
+  public void setOPENTOPUBLIC(boolean OPENTOPUBLIC) {
+    this.OPENTOPUBLIC = OPENTOPUBLIC;
+  }
+
+  public String getCUSTOM() {
+    return CUSTOM;
+  }
+
+  public void setCUSTOM(String CUSTOM) {
+    this.CUSTOM = CUSTOM;
   }
     
 }

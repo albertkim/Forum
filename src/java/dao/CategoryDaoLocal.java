@@ -20,5 +20,7 @@ public interface CategoryDaoLocal {
   int getCategoryId(String name);
 
   List<Category> getAllCategories();
+  
+  List<Category> getCustomCategories();
 
 }

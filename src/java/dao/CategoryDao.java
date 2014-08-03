@@ -50,5 +50,11 @@ public class CategoryDao implements CategoryDaoLocal {
     Query queryUser = em.createQuery("SELECT e FROM Category e");
     return queryUser.getResultList();
   }
+  
+  @Override
+  public List<Category> getCustomCategories() {
+    Query queryUser = em.createQuery("SELECT e FROM Category e WHERE e.CATEGORYID != 1 AND e.CATEGORYID != 2 AND e.CATEGORYID != 3 AND e.CATEGORYID != 4");
+    return queryUser.getResultList();
+  }
 
 }

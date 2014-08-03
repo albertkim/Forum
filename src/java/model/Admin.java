@@ -15,22 +15,32 @@ public class Admin implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
-  private String USERNAME;
+  private String ADMINID;
+  @Column
+  private int USERID;
   
   public Admin() {
     
   }
 
-  public Admin(String username) {
-    this.USERNAME = username;
+  public Admin(int userId) {
+    this.USERID = userId;
   }
 
-  public String getUSERNAME() {
-    return USERNAME;
+  public String getADMINID() {
+    return ADMINID;
   }
 
-  public void setUSERNAME(String USERNAME) {
-    this.USERNAME = USERNAME;
+  public void setADMINID(String ADMINID) {
+    this.ADMINID = ADMINID;
+  }
+
+  public int getUSERID() {
+    return USERID;
+  }
+
+  public void setUSERNAME(int userId) {
+    this.USERID = userId;
   }
 
 }

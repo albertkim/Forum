@@ -37,6 +37,7 @@ public class mainServlet extends HttpServlet {
     
     // Get categories
     request.setAttribute("allCategories", categoryDao.getAllCategories());
+    request.setAttribute("customCategories", categoryDao.getCustomCategories());
     
     // Process category parameter
     String category = request.getParameter("category");
