@@ -49,11 +49,12 @@ public class postServlet extends HttpServlet {
         int userId = Integer.parseInt(userIdString);
         String parentIdString = request.getParameter("POSTID");
         
-        // Get content string and parse to handle new lines
-        String content = request.getParameter("CONTENT").replaceAll("\\r|\\n", "<br>");
         // Handle html tags
+        String content = request.getParameter("CONTENT");
         content = StringEscapeUtils.escapeHtml4(content);
         System.out.println(content);
+        // Get content string and parse to handle new lines
+        content = content.replaceAll("\\r|\\n", "<br>");
         
         if("".equals(content)){
           session.setAttribute("message", "Cannot make an empty post");

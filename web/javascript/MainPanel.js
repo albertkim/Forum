@@ -7,7 +7,7 @@ var MainPanel = (function() {
   var postsList = [];
   
   // Input:
-    // currentUser
+    // currentUserId
     // isAdmin
     // currentCategory
     // currentTopicId

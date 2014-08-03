@@ -3,7 +3,7 @@ AddPost = (function() {
   // currentUserId
   // currentCategory
   // currentTopic
-  // currentPost
+  // currentPostId
   var config = {};
 
   var init = function(settings) {
@@ -16,7 +16,7 @@ AddPost = (function() {
       data: {
         action: "addPost",
         USERID: config.currentUserId,
-        POSTID: config.currentPost,
+        POSTID: config.currentPostId,
         topicId: config.currentTopicId,
         CONTENT: config.content
       },

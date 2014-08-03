@@ -85,13 +85,24 @@
       currentCategory: "${currentCategory}",
       currentTopicId: "${currentTopicId}"
     });
+    
+    $(".submitPost").on("click", function() {
+      AddPost.init({
+        currentUserId: "${currentUser.USERID}",
+        currentCategory: "${currentCategory}",
+        currentTopicId: "${currentTopicId}",
+        currentPostId: 0,
+        content: $(".add-post-body").val()
+      });
+      AddPost.submit();
+    });
 
     $(".submitReply").on("click", function() {
       AddPost.init({
         currentUserId: "${currentUser.USERID}",
         currentCategory: "${currentCategory}",
         currentTopicId: "${currentTopicId}",
-        currentPost: $(".postElement.selected").attr("postId"),
+        currentPostId: $(".postElement.selected").attr("postId"),
         content: $(".reply-body").val()
       });
       AddPost.submit();
