@@ -33,15 +33,32 @@
     </div>
     
     <div class="toppanel">
-      <div style="float: left; position: absolute; bottom: 0px; width: 300px; cursor: pointer;">
+      <div class="categoryLabel">
+        <a class="categoryLabelLink" href="/Debate_Platform/mainServlet/aboutMe"></a>
         <h2>About Me</h2>
       </div>
-      <div class="categoryWrapper" style="float: left;">
-        <div class="category" categoryId="1">Debate</div>
-        <div class="category" categoryId="2">Finance</div>
-        <div class="category" categoryId="3">Technology</div>
-        <div class="category" categoryId="4">Off-Topic</div>
-        <div class="topLink about">About Me (Coming Soon)</div>
+      <div class="categoryWrapper" style="float: left; bottom: 0px;">
+        <div class="category" categoryId="1">
+          <a class="categoryLink" href="/Debate_Platform/mainServlet?category=Debate"></a>
+          Debate
+        </div>
+        <div class="category" categoryId="2">
+          <a class="categoryLink" href="/Debate_Platform/mainServlet?category=Finance"></a>
+          Finance
+        </div>
+        <div class="category" categoryId="3">
+          <a class="categoryLink" href="/Debate_Platform/mainServlet?category=Technology"></a>
+          Technology
+        </div>
+        <div class="category" categoryId="4">
+          <a class="categoryLink" href="/Debate_Platform/mainServlet?category=Off-Topic"></a>
+          Off-Topic
+        </div>
+
+        <div class="topLink about">
+          <a class="categoryLink" href="/Debate_Platform/mainServlet/aboutMe"></a>
+          About Me
+        </div>
       </div>
     </div>
 
@@ -52,7 +69,7 @@
       </div>
       <div style="text-align: center; font-size: 1.5em;">
         <br><br>
-        3rd year Computer Science Major at the UBC
+        3rd year Computer Science Major at UBC
         <br><br><br>
         Aspiring entrepreneur
         <br><br><br>

@@ -8,28 +8,9 @@ Handlers = (function() {
 
   var init = function(settings) {
     $.extend(config, settings);
-    initTitleHandlers();
-    aboutMeHandler();
     initCurrentCategoryHandlers();
-    initCategoryHandlers();
-    initTopicHandlers();
     initRegisterHandlers();
     initDeleteTopicHandlers();
-  };
-  
-  var initTitleHandlers = function() {
-    $(".title").on("click",  function() {
-      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
-      console.log(url);
-      location.href = (url);
-    });
-  };
-  
-  var aboutMeHandler = function() {
-    $(".about").on("click", function(){
-      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet/aboutMe";
-      location.href = (url);
-    });
   };
   
   var initCurrentCategoryHandlers = function() {
@@ -37,23 +18,6 @@ Handlers = (function() {
     $(".currentCategory").on("click", function() {
       var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
       var parameters = "?" + "category=" + config.currentCategory; 
-      location.href = (url + parameters);
-    });
-  };
-  
-  var initCategoryHandlers = function() {
-    $(".category").on("click", function() {
-      var url = window.location.protocol + "//" + window.location.host + "/Debate_Platform/mainServlet";
-      var parameters = "?" + "category=" + $(this).html(); 
-      location.href = (url + parameters);
-    });
-  };
-
-  var initTopicHandlers = function() {
-    // Highlight current topic
-    $(".topicElement").on("click", function() {
-      var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      var parameters = "?" + "category=" + $(this).attr("category") + "&topicId=" + $(this).attr("topicId");
       location.href = (url + parameters);
     });
   };

@@ -59,6 +59,8 @@ public class TopicDao implements TopicDaoLocal{
     for(Topic t: topicList){
       returnList.add(setTransientFields(t));
     }
+    // Return latest topics first
+    Collections.reverse(returnList);
     return returnList;
   }
   

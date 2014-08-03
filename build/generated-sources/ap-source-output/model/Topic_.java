@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.1.v20130918-rNA", date="2014-07-30T22:43:28")
+@Generated(value="EclipseLink-2.5.1.v20130918-rNA", date="2014-08-02T16:28:35")
 @StaticMetamodel(Topic.class)
 public class Topic_ { 
 
@@ -17,6 +17,7 @@ public class Topic_ {
     public static volatile SingularAttribute<Topic, Date> DATEUPDATED;
     public static volatile SingularAttribute<Topic, Date> DATECREATED;
     public static volatile SingularAttribute<Topic, Timestamp> TIMEUPDATED;
+    public static volatile SingularAttribute<Topic, String> URL;
     public static volatile SingularAttribute<Topic, Integer> USERID;
 
 }

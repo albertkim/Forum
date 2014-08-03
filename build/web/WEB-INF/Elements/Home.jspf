@@ -7,21 +7,25 @@
 
 <div style="float: none">
   <div class="bigCategory" category="Debate" style="background-color: #013233; float:left">
+    <a class="bigCategoryLink" style="width: 100%; height: 100%" href="/Debate_Platform/mainServlet?category=Debate"></a>
     <div class="bigCategoryLabel">
       <div class="labelText">Debate</div>
     </div>
   </div>
   <div class="bigCategory" category="Finance" style="background-color: #FF3234; float:left">
+    <a class="bigCategoryLink" style="width: 100%; height: 100%" href="/Debate_Platform/mainServlet?category=Finance"></a>
     <div class="bigCategoryLabel">
       <div class="labelText">Finance</div>
     </div>
   </div>
   <div class="bigCategory" category="Technology" style="background-color: #669899; float:left">
+    <a class="bigCategoryLink" style="width: 100%; height: 100%" href="/Debate_Platform/mainServlet?category=Technology"></a>
     <div class="bigCategoryLabel">
       <div class="labelText">Technology</div>
     </div>
   </div>
   <div class="bigCategory" category="Off-Topic" style="background-color: #989898; float:left">
+    <a class="bigCategoryLink" style="width: 100%; height: 100%" href="/Debate_Platform/mainServlet?category=Off-Topic"></a>
     <div class="bigCategoryLabel">
       <div class="labelText">Off-Topic</div>
     </div>

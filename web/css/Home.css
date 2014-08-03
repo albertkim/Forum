@@ -9,6 +9,7 @@
 }
 
 .bigCategory{
+  position: relative;
   width: 280px;
   height: 280px;
   background-color: #F0F0F0;
@@ -17,6 +18,12 @@
   background-size: 550px;
   cursor: pointer;
   z-index: 1;
+}
+
+.bigCategoryLink{
+  position: absolute;
+  width: 280px;
+  height: 280px;
 }
 
 .bigCategoryLabel{

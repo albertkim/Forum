@@ -92,6 +92,15 @@
 
 /* Topic URL on top of page */
 
+.current-url-preview-link{
+  position: absolute;
+  width: 500px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
 .current-url-preview{
   width: 500px;
   margin-left: auto;

@@ -21,6 +21,7 @@ To Do:
 * (done) --------------- Properly organize javascript model instantiations (right now it's a mess)
 * (done) --------------- Add 'About Me' page
 * (done) --------------- Add/display URL fields for topics when users post links
+* (done) --------------- Removed javascript onclick links to a href
 
 * (in progress) ------- Add category-specific custom data post options
 * (in progress) ------- Admin functionality (removal of posts, editing, etc)

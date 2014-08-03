@@ -7,8 +7,8 @@
       <!-- Read currentTopic variable set in index.jsp -->
       <c:choose>
         <c:when test="${not empty currentTopic.URL}">
-            
           <div class="current-url-preview">
+            <a href="${currentTopic.URL}" class="current-url-preview-link" style="position: absolute"></a>
             <div class="currentTopicUrl" hidden>${currentTopic.URL}</div>
             <input class="experimentalCurrentTopicUrl" hidden/>
             <div style="width: 100%; height: auto;">

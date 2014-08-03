@@ -25,6 +25,10 @@
       </c:otherwise>
     </c:choose>
       
+      <!-- link element -->
+      <a class="topicElementLink" href="/Debate_Platform/mainServlet?category=${topic.CATEGORYNAME}&topicId=${topic.TOPICID}"></a>
+      
+      
       <div style="width: auto; height: auto; overflow: hidden;">
         <!-- <div class="topicUserWrapper"></div> -->
         <div class="topicWrapper">${allTopics[row.index].CONTENT}</div>
