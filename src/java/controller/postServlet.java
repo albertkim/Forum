@@ -92,6 +92,9 @@ public class postServlet extends HttpServlet {
           response.sendRedirect(referer);
           return;
         }
+        if(!url.contains("http://")){
+          url = "http://" + url;
+        }
         
         int categoryId = categoryDao.getCategoryId(categoryIdString);
         Topic newTopic = new Topic(userId, categoryId, title, url);

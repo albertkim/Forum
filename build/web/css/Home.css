@@ -20,6 +20,14 @@
   z-index: 1;
 }
 
+.bigCategory:hover{
+  border-radius: 2px;
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  background-color: #F0F0F0;
+}
+
 .bigCategoryLink{
   position: absolute;
   width: 280px;
