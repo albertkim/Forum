@@ -93,8 +93,12 @@ public class postServlet extends HttpServlet {
           response.sendRedirect(referer);
           return;
         }
-        if(!url.contains("http://")){
-          url = "http://" + url;
+        if(!url.contains("http://") || !url.contains("https://")){
+          if(!url.contains("http://")){
+            url = "http://" + url;
+          } else{
+            url = "https://" + url;
+          }
         }
         
         int categoryId = categoryDao.getCategoryId(categoryIdString);
