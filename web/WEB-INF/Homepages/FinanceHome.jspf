@@ -1,0 +1,19 @@
+<!-- This jsp fragment will be placed inside a mainpanel from index.jsp -->
+<script type="text/javascript" src="js/FinanceHome.js"></script>
+<script type="text/javascript" src="js/Chartjs/Chart.js"></script>
+
+<!-- Today's main index charts -->
+<h3>SPDR S&P 500 (6 months)</h3>
+<canvas id="sp500" width="1000" height="400" style="margin: 20px;"></canvas>
+<h3>NASDAQ 100 (6 months)</h3>
+<canvas id="nasdaq100" width="1000" height="400" style="margin: 20px;"></canvas>
+<h3>Twitter (6 months)</h3>
+<canvas id="twitter" width="1000" height="400" style="margin: 20px;"></canvas>
+<h3>Facebook (6 months)</h3>
+<canvas id="facebook" width="1000" height="400" style="margin: 20px;"></canvas>
+
+<!-- Custom user-organized charts -->
+
+<script type="text/javascript">
+  FinanceHome.init();
+</script>

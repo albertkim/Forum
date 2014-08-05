@@ -25,6 +25,7 @@
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>Javascript</word>
+            <word>jsp</word>
             <word>popup</word>
         </spellchecker-wordlist>
     </configuration>

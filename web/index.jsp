@@ -11,14 +11,15 @@
     <link rel="stylesheet" type="text/css" href="css/Home.css">
     <link rel="stylesheet" type="text/css" href="css/TopPanel.css">
     <link rel="stylesheet" type="text/css" href="css/Popup.css">
-    <script type="text/javascript" src="javascript/Handlers.js"></script>
-    <script type="text/javascript" src="javascript/Home.js"></script>
-    <script type="text/javascript" src="javascript/Post.js"></script>
-    <script type="text/javascript" src="javascript/MainPanel.js"></script>
-    <script type="text/javascript" src="javascript/Login.js"></script>
-    <script type="text/javascript" src="javascript/AddPost.js"></script>
-    <script type="text/javascript" src="javascript/AddTopic.js"></script>
-    <script type="text/javascript" src="javascript/Rating.js"></script>
+    <script type="text/javascript" src="js/Handlers.js"></script>
+    <script type="text/javascript" src="js/Home.js"></script>
+    <script type="text/javascript" src="js/Post.js"></script>
+    <script type="text/javascript" src="js/MainPanel.js"></script>
+    <script type="text/javascript" src="js/Login.js"></script>
+    <script type="text/javascript" src="js/AddPost.js"></script>
+    <script type="text/javascript" src="js/AddTopic.js"></script>
+    <script type="text/javascript" src="js/Rating.js"></script>
+    <script type="text/javascript" src="js/Underscore/underscore-min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
     <script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
@@ -66,7 +67,15 @@
     <div class="mainpanel">
       <c:choose>
         <c:when test="${not empty currentCategory}">
-          <%@ include file="WEB-INF/Elements/MainPanel.jspf"%>
+          <c:choose>
+            <c:when test="${currentCategory == 'Finance' and empty param.topicId}">
+              <%@ include file="WEB-INF/Homepages/FinanceHome.jspf"%>
+            </c:when>
+            <c:otherwise>
+              <%@ include file="WEB-INF/Elements/MainPanel.jspf"%>
+            </c:otherwise>
+          </c:choose>
+          
         </c:when>
         <c:otherwise>
           <div>
