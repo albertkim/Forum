@@ -39,6 +39,7 @@ Progress screenshots:
 ![Alt text](/src/img/July 12.png?raw=true "July 12")
 ![Alt text](/src/img/July 13.PNG?raw=true "July 13")
 ![Alt text](/src/img/July 22.PNG?raw=true "July 22")
-![Alt text](/src/img/July 27.PNG?raw=true "July 27")
 ![Alt text](/src/img/August 2-1.PNG?raw=true "August 2")
 ![Alt text](/src/img/August 2-2.PNG?raw=true "August 2")
+![Alt text](/src/img/August 4-1.PNG?raw=true "August 4")
+![Alt text](/src/img/August 4-2.PNG?raw=true "August 4")
