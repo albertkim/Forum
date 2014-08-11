@@ -87,16 +87,21 @@ public class postServlet extends HttpServlet {
         String title = request.getParameter("TITLE");
         String url = request.getParameter("URL");
         
+        System.out.println(url);
         if(url.contains(" ")){
           session.setAttribute("message", "Url cannot contain spaces");
           String referer = request.getHeader("Referer");
           response.sendRedirect(referer);
           return;
         }
-        if(!url.contains("http://") || !url.contains("https://")){
-          if(!url.contains("http://")){
+        if(!url.contains("//")){
+          if(!url.contains("http") && !url.contains("https")){
             url = "http://" + url;
-          } else{
+          } 
+          else if(!url.contains("http")){
+            url = "http://" + url;
+          }
+          else if(!url.contains("https")){
             url = "https://" + url;
           }
         }

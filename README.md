@@ -1,7 +1,7 @@
 Forum
 =====
 
-Forum made with Java EE. Goal is to make a forum with modular, customized views for each category to suit different categories and communities.
+Forum made with Java EE. Goal is to make a forum with modular, customized views to suit different categories and communities.
 
 If you want to see the deployed application and experience it in it's non-complete, buggy state, check it out here
 http://ec2-54-191-101-201.us-west-2.compute.amazonaws.com:8080/Debate_Platform/
